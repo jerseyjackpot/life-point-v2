@@ -1,0 +1,388 @@
+{{!-- Nav Bar --}}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/logout">
+        Logout
+      </a>
+    </div>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/calendar">
+        Calendar
+      </a>
+    </div>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/resources">
+        Resources
+      </a>
+    </div>
+  </div>
+</nav>
+
+{{!-- Mood section --}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2 class="date"></h2>
+    </div>
+  </div>
+  <div class="columns col-md-4">
+    <h2 class="Titles">
+      Mood
+    </h2>
+    <div class="moods">
+      <div class="imageCol">
+        <img
+          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png"
+          srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png 2x"
+          alt="Grinning Face" class="moodimg">
+        <div class="form-check form-check-inline">
+          {{#if moodData1}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
+            checked>
+          {{else}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          {{/if}}
+        </div>
+      </div>
+      <div class="imageCol">
+        <img
+          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/slightly-smiling-face_1f642.png"
+          srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/slightly-smiling-face_1f642.png 2x"
+          alt="Slightly Smiling Face" class="moodimg">
+        <div class="form-check form-check-inline">
+          {{#if moodData2}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+            checked>
+          {{else}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          {{/if}}
+        </div>
+      </div>
+      <div class="imageCol">
+        <img
+          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/neutral-face_1f610.png"
+          srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/neutral-face_1f610.png 2x"
+          alt="Neutral Face" class="moodimg">
+        <div class="form-check form-check-inline">
+          {{#if moodData3}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"
+            checked>
+          {{else}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+          {{/if}}
+        </div>
+      </div>
+      <div class="imageCol">
+        <img
+          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/slightly-frowning-face_1f641.png"
+          srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/slightly-frowning-face_1f641.png 2x"
+          alt="Slightly Frowning Face on Apple iOS 13.3" class="moodimg">
+        <div class="form-check form-check-inline">
+          {{#if moodData4}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"
+            checked>
+          {{else}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+          {{/if}}
+        </div>
+      </div>
+      <div class="imageCol">
+        <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/crying-face_1f622.png"
+          srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/crying-face_1f622.png 2x"
+          alt="Crying Face" class="moodimg">
+        <div class="form-check form-check-inline">
+          {{#if moodData5}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5"
+            checked>
+          {{else}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+          {{/if}}
+        </div>
+      </div>
+      <div class="imageCol">
+        <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/angry-face_1f620.png"
+          srcset="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/angry-face_1f620.png 2x"
+          alt="Angry Face" class="moodimg">
+        <div class="form-check form-check-inline">
+          {{#if moodData6}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6"
+            checked>
+          {{else}}
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    {{!-- Habits section --}}
+    <h2 class="Titles">
+      Habits
+    </h2>
+    <div class="habits">
+      <div class="form-group row">
+        <div class="col-sm-5">Medication taken?</div>
+        <div class="col-sm-7">
+          <div class="form-check">
+            {{#if medData}}
+            <input class="form-check-input" type="checkbox" id="medication" checked>
+            {{else}}
+            <input class="form-check-input" type="checkbox" id="medication">
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Hours of Sleep?</label>
+        <div class="col-sm-3">
+          <input type="number" min="0" value={{hoursData}} class="form-control" id="sleepTime">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Minutes of Exercise?</label>
+        <div class="col-sm-3">
+          <input type="number" min="0" value={{exercise}} class="form-control" id="exerciseTime">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Minutes Napping?</label>
+        <div class="col-sm-3">
+          <input type="number" min="0" value={{napping}} class="form-control" id="napTime">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Servings of Caffiene?</label>
+        <div class="col-sm-3">
+          <input type="number" min="0" value={{caffiene}} class="form-control" id="caffieneCount">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Servings of Alcohol?</label>
+        <div class="col-sm-3">
+          <input type="number" min="0" value={{alcohol}} class="form-control" id="alcoholCount">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Hours of Digital Media?</label>
+        <div class="col-sm-3">
+          <input type="number" min="0" value={{tv}} class="form-control" id="mediaTime">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-5 col-form-label">Minutes Socializing?</label>
+        <div class="col-sm-3">
+          <input type="number" min="0" value={{social}} class="form-control" id="socialTime">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-5">Showered?</div>
+        <div class="col-sm-7">
+          <div class="form-check">
+            {{#if shower}}
+            <input class="form-check-input" type="checkbox" id="showered" checked>
+            {{else}}
+            <input class="form-check-input" type="checkbox" id="showered">
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-5">Brush teeth?</div>
+        <div class="col-sm-7">
+          <div class="form-check">
+            {{#if brushed}}
+            <input class="form-check-input" type="checkbox" id="teeth" checked>
+            {{else}}
+            <input class="form-check-input" type="checkbox" id="teeth">
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-5">Self Care?</div>
+        <div class="col-sm-7">
+          <div class="form-check">
+            {{#if care}}
+            <input class="form-check-input" type="checkbox" id="selfCare" checked>
+            {{else}}
+            <input class="form-check-input" type="checkbox" id="selfCare">
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Ailments section --}}
+    <h2 class="Titles">
+      Ailments
+    </h2>
+    <div class="form-group row">
+      <div class="col-sm-5">Headache?</div>
+      <div class="col-sm-7">
+        <div class="form-check">
+          {{#if ache}}
+          <input class="form-check-input" type="checkbox" id="headAche" checked>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="headAche">
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-5">Nausea?</div>
+      <div class="col-sm-7">
+        <div class="form-check">
+          {{#if nauseaa}}
+          <input class="form-check-input" type="checkbox" id="nausea" checked>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="nausea">
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-5">Exhaustion?</div>
+      <div class="col-sm-7">
+        <div class="form-check">
+          {{#if exhaust}}
+          <input class="form-check-input" type="checkbox" id="exhaustion" checked>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="exhaustion">
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-5">Insomnia?</div>
+      <div class="col-sm-7">
+        <div class="form-check">
+          {{#if sleepless}}
+          <input class="form-check-input" type="checkbox" id="insomnia" checked>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="insomnia">
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-5">Menstruation?</div>
+      <div class="col-sm-7">
+        <div class="form-check">
+          {{#if period}}
+          <input class="form-check-input" type="checkbox" id="menstruation" checked>
+          {{else}}
+          <input class="form-check-input" type="checkbox" id="menstruation">
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle col-sm-7" type="button" id="appetiteDropdownButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-appetite="{{appetiteValue}}">
+        Appetite: {{appetiteText}}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="appetiteDropdownButton" id="appetite">
+        <a class="dropdown-item">Low</a>
+        <a class="dropdown-item">Medium</a>
+        <a class="dropdown-item">High</a>
+        <a class="dropdown-item">Very High</a>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Affirmation section --}}
+  <div class="columns col-md-4">
+    <div class="affirmation">
+      Today's Affirmation:
+      {{affirmData}}
+    </div>
+
+    {{!-- Grateful section --}}
+    <div class="grateful titles">
+      <h2>Grateful For:</h2>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">1.</span>
+        </div>
+        <input type="text" class="form-control" aria-label="greatful1" aria-describedby="basic-addon1"
+          id="grateful1" placeholder="{{grate1}}">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">2.</span>
+        </div>
+        <input type="text" class="form-control" aria-label="greatful2" aria-describedby="basic-addon1"
+          id="grateful2" placeholder="{{grate2}}">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">3.</span>
+        </div>
+        <input type="text" class="form-control" aria-label="greatful3" aria-describedby="basic-addon1"
+          id="grateful3" placeholder="{{grate3}}">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">4.</span>
+        </div>
+        <input type="text" class="form-control" aria-label="greatful4" aria-describedby="basic-addon1"
+          id="grateful4" placeholder="{{grate4}}">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">5.</span>
+        </div>
+        <input type="text" class="form-control" aria-label="greatful5" aria-describedby="basic-addon1"
+          id="grateful5" placeholder="{{grate5}}">
+      </div>
+    </div>
+
+    {{!-- Remember section --}}
+    <h2 class="remember titles">
+      Remember To:
+    </h2>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">1.</span>
+      </div>
+      <input type="text" class="form-control" aria-label="remember1" aria-describedby="basic-addon1"
+        id="remember1" placeholder="{{rem1}}">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">2.</span>
+      </div>
+      <input type="text" class="form-control" aria-label="remember2" aria-describedby="basic-addon1"
+        id="remember2" placeholder="{{rem2}}">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">3.</span>
+      </div>
+      <input type="text" class="form-control" aria-label="remember3" aria-describedby="basic-addon1"
+        id="remember3" placeholder="{{rem3}}">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">4.</span>
+      </div>
+      <input type="text" class="form-control" aria-label="remember4" aria-describedby="basic-addon1"
+        id="remember4" placeholder="{{rem4}}">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">5.</span>
+      </div>
+      <input type="text" class="form-control" aria-label="remember5" aria-describedby="basic-addon1"
+        id="remember5" placeholder="{{rem5}}">
+    </div>
+  </div>
+
+  {{!-- Journal section --}}
+  <div class="columns col-md-4">
+    <div class="form-group">
+      <h2 for="exampleFormControlTextarea1">Journal Entry</h2>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="37">{{journalText}}</textarea>
+    </div>
+  </div>
+</div>
