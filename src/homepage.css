@@ -1,0 +1,86 @@
+/* Body */
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('./img/Lotus.png') !important;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+   
+}
+
+/* Text Elements */
+header {
+    background-color: #49B1A7;
+    font-weight: bolder;
+    text-align: center;
+    padding: 0.5rem;
+    font-family: 'Neucha', cursive;
+  }
+
+h2 {
+    font-weight: bolder;
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Neucha', cursive;
+}
+
+h1 {
+    font-size: largearge;
+    font-weight: bolder;
+}
+
+/* Buttons */
+#button-a {
+    background-color: #49B1A7;
+    color: black;
+    font-family: 'Neucha', cursive;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-spacing: 2rem;
+    font-weight: bolder;
+}
+
+#button-b {
+    background-color: #49B1A7;
+    color: black;
+    font-family: 'Neucha', cursive;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-spacing: 2rem;
+    font-weight: bolder;    
+}
+
+#button-c {
+    background-color: #49B1A7;
+    color: black;
+    margin-top: 1rem;
+    font-family: 'Neucha', cursive;
+    padding: 1rem;
+    border-spacing: 2rem;
+    font-weight: bolder; 
+}
+
+#button-c:hover {
+    background-color: #A16C86;
+}
+
+#button-b:hover {
+    background-color: #A16C86;
+}
+
+#button-a:hover {
+    background-color: #A16C86;
+}
+
+/* Footer */
+.footer{
+    background-color: gray;
+    color: black;
+    text-align: center;
+    font-family: 'Neucha', cursive;
+    font-weight: bolder;
+    padding-bottom: 1rem;
+  }
