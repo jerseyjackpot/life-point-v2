@@ -2,12 +2,12 @@ import React from 'react';
 import Homepage from './homepage.js';
 import Header from './header.js';
 import Footer from './footer.js';
-import Members from './members.js';
+// import Members from './members.js';
 import Calendar from './calendar.js';
 import Resources from './resources.js';
 import Login from './login.js';
 import Signup from './signup.js';
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -27,9 +27,9 @@ function App() {
             <Homepage />
           </Route>
          
-          <Route exact path="/members">
+          {/* <Route exact path="/members">
             <Members />
-          </Route>
+          </Route> */}
 
           <Route exact path="/calendar">
             <Calendar />
