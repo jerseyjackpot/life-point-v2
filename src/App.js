@@ -5,6 +5,8 @@ import Footer from './footer.js';
 import Members from './members.js';
 import Calendar from './calendar.js';
 import Resources from './resources.js';
+import Login from './login.js';
+import Signup from './signup.js';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,6 +17,12 @@ function App() {
     <Router>
       <Header />
         <Switch>
+        <Route exact path="/">
+            <Login />
+          </Route>
+          <Route exact path="/">
+            <Signup />
+          </Route>
           <Route exact path="/">
             <Homepage />
           </Route>
