@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
-import Calendar from 'react-calendar';
+import Calendar from 'rc-year-calendar';
  
  
-  function Calendar() {
+  function CalendarLP() {
+    const dayClickHandler = (date, events) => {
+
+
+      console.log("dayclick", date)
+    }
+
+
+
     return (
       <div>
-        <Calendar
-          onChange={this.onChange}
-          value={this.state.date}
-        />
+        <Calendar onDayClick = {dayClickHandler}/>
       </div>
     );
   }
   
-  export default Calendar;
+  export default CalendarLP;
