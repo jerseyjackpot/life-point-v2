@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'rc-year-calendar';
+import "../pages/style.css";
  
  
   function CalendarLP() {
