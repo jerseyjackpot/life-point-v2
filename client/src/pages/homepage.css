@@ -2,7 +2,6 @@
 body {
     display: flex;
     flex-direction: column;
-    background-image: url('./img/Lotus.png') !important;
     background-color: white;
     background-repeat: no-repeat;
     background-attachment: fixed;
