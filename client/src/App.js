@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Homepage from './pages/homepage.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
-// import Members from './members.js';
+import Members from './pages/members.js';
 import Calendar from './components/calendar.js';
 // import Resources from './pages/resources.js';
 import Login from './pages/login.js';
@@ -22,10 +22,10 @@ function App() {
   
         <Header />
         <Switch>
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <Login />
           </Route>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Signup />
           </Route> */}
           <Route exact path="/">
@@ -35,9 +35,9 @@ function App() {
             <Login />
           </Route>
 
-          {/* <Route exact path="/members">
+          <Route exact path="/members">
             <Members />
-          </Route> */}
+          </Route>
           
           <Route exact path="/calendar">
             <Calendar />
