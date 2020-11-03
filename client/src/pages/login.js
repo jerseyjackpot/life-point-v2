@@ -73,7 +73,7 @@ function Login(props){
                         <button type="submit" className="btn btn-default" onClick={ event => handleSubmit(event)}>Login</button>
                     </div>
                     <br />
-                    <p>Or sign up <a href="/">here</a></p>
+                    <p>Or sign up <a href="/signup">here</a></p>
                 </div>
             </div>
         </div>
