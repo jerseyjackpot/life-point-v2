@@ -33,6 +33,9 @@ export default {
         //         });
         //     }
         // }
+    },
+    getMoods: function(){
+        return Axios.get("/api/entry");
     }
 }
 
