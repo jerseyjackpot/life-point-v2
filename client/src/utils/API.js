@@ -40,4 +40,26 @@ export default {
         }
 
     }
+    // getAffirmation: function(){
+    //     //return axios.get("/api/affirmation");
+    //     return {
+    //         then: function(cb){
+    //             cb({
+    //                 affirmation: "Have a nice day",
+    //                 id: 7
+    //             });
+    //         }
+    //     }
+    // }
+}
+export const getAffirmation = function(){
+    //return axios.get("/api/affirmation");
+    return {
+        then: function(cb){
+            cb({
+                affirmation: "Have a nice day",
+                id: 7
+            });
+        }
+    }
 }
