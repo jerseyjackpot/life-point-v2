@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Homepage from './pages/homepage.js';
+import Signup from './pages/signup.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 // import Members from './members.js';
@@ -28,10 +29,13 @@ function App() {
           <Route exact path="/">
             <Signup />
           </Route> */}
-          <Route exact path="/">
+          <Route exact path="/homepage">
             <Homepage />
           </Route>
-          <Route exact path="/login">
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          <Route exact path={["/login", "/"]}>
             <Login />
           </Route>
 
