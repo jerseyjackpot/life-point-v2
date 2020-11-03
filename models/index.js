@@ -1,40 +1,23 @@
-// Be strict about bugs
-'use strict';
-
-var fs = require('fs');
-var path = require('path');
-var Sequelize = require('sequelize');
-var basename = path.basename(module.filename);
-var env = process.env.NODE_ENV || 'development';
-var config = require(__dirname + '/../config/config.json')[env];
-var db = {};
-
-// If it's deployed, use line 14, else use the development data from the config.json
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
-
-// Initializes sequelize
-fs
-  .readdirSync(__dirname)
-  .filter(function (file) {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(function (file) {
-    var model = sequelize['import'](path.join(__dirname, file));
+"use strict";
+const fs = require("fs");
+const path = require("path");
+const Sequelize = require("sequelize");
+const basename = path.basename(__filename);
+// configure index.js to read environment variables to read from a .env file
+require('dotenv').config();
+console.log(process.env.NODE_ENV);
+const env = process.env.NODE_ENV || "development";
+const config = require(__dirname + "/../config/config.json")[env];
+const sequelize = config.use_env_variable ? new Sequelize(process.env[config.use_env_variable], config) : new Sequelize(config.database, config.username, config.password, config);
+let db = {sequelize, Sequelize};
+db = fs.readdirSync(__dirname)
+  .filter(file => (file.indexOf(".") !== 0) && (file !== basename) && (file.slice(-3) === ".js"))
+  .reduce( (db, file) => {
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
-  });
-
-
-Object.keys(db).forEach(function (modelName) {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+    return db;
+  }, db);
+Object.keys(db).forEach(modelName => {
+  db[modelName].associate ? db[modelName].associate(db) : false;
 });
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
 module.exports = db;

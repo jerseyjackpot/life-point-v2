@@ -3,7 +3,7 @@ import Homepage from './pages/homepage.js';
 import Header from './components/header.js';
 import Footer from './components/footer.js';
 // import Members from './members.js';
-// import Calendar from './components/calendar.js';
+import Calendar from './components/calendar.js';
 // import Resources from './pages/resources.js';
 import Login from './pages/login.js';
 // import Signup from './pages/signup.js';
@@ -38,12 +38,12 @@ function App() {
           {/* <Route exact path="/members">
             <Members />
           </Route> */}
-          {/* 
+          
           <Route exact path="/calendar">
             <Calendar />
           </Route>
 
-          <Route exact path="/resources">
+          {/* <Route exact path="/resources">
             <Resources />
           </Route> */}
 
