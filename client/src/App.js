@@ -5,9 +5,8 @@ import Header from './components/header.js';
 import Footer from './components/footer.js';
 import Members from './pages/members.js';
 import Calendar from './components/calendar.js';
-// import Resources from './pages/resources.js';
+import Resources from './pages/resources.js';
 import Login from './pages/login.js';
-// import Signup from './pages/signup.js';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserContext from "./UserContext";
@@ -26,9 +25,6 @@ function App() {
           <Route exact path="/">
             <Login />
           </Route>
-          {/* <Route exact path="/">
-            <Signup />
-          </Route> */}
           <Route exact path="/homepage">
             <Homepage />
           </Route>
@@ -47,9 +43,9 @@ function App() {
             <Calendar />
           </Route>
 
-          {/* <Route exact path="/resources">
+          <Route exact path="/resources">
             <Resources />
-          </Route> */}
+          </Route>
 
         </Switch>
         <Footer />

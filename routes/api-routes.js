@@ -161,7 +161,16 @@ module.exports = function (app) {
       });
     });
   });
-
+  
+  app.get("/api/affirmation", function (req, res){
+    db.Affirmation.findOne({
+      order: db.sequelize.random()
+    }).then(function (postAffirm){
+      res.json(postAffirm)
+    })
+        
+      
+  })
 
   // API call to get the calendar data
   app.get("/api/calendar", function (req, res) {

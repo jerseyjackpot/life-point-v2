@@ -1,20 +1,21 @@
 import React, {useState, useEffect} from "react";
 import { Card } from "react-bootstrap";
 import chalk from "./chalk.jpg";
-import { getAffirmation } from "../../utils/API"
+import API from "../../utils/API"
 
 function Affirmation() {
-const [affirmation, setAffirmation] = useState();
+const [affirmation, setAffirmation] = useState({quote: ""});
 
 useEffect(() =>{
-  getAffirmation().then(data =>{
-    setAffirmation(data);
+  API.getAffirmation().then(data =>{
+    
+    setAffirmation(data.data);
   })
-})
+},[])
   return (
     <>
       <Card className="affirmation" style={{ backgroundImage:`url(${chalk})` }}>
-        <Card.Body>{JSON.stringify(affirmation.affirmation)}</Card.Body>
+        <Card.Body>{JSON.stringify(affirmation.quote)}</Card.Body>
       </Card>
     </>
   );
