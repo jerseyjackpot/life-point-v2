@@ -2,6 +2,9 @@ import React from 'react';
 import "./style.css";
 import Affirmation from "../components/affirmations/index";
 import Moods from "../components/mood/index";
+import Journal from "../components/journal/index";
+import Grateful from "../components/grateful/index";
+import Remembers from "../components/remember/index";
 
 
 
@@ -10,7 +13,10 @@ function Members() {
         <div>
             <Affirmation/>
             <Moods/>
-           <h1>Hello</h1> 
+            <Journal/>
+            <Grateful/>
+            <Remembers/>
+           
         </div>
        
     )
