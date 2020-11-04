@@ -7,35 +7,26 @@ export default {
     },
     login: function (userData) {
         return Axios.post("/api/login", userData);
-
-        
     },
     getCalendar: function () {
-        // return axios.get("/api/calendar");
+        return Axios.get("/api/calendar");
         // Gets the data for each mood based on the journal and UserId they are tied to
-        return {
-            then: function (cb) {
-                cb({
-                    email: "Test",
-                    id: 1
-                });
-            }
-        }
-
     },
     getAffirmation: function(){
         return Axios.get("/api/affirmation");
-        // return {
-        //     then: function(cb){
-        //         cb({
-        //             affirmation: "Have a nice day",
-        //             id: 7
-        //         });
-        //     }
-        // }
+        
     },
     getMoods: function(){
-        return Axios.get("/api/entry");
+        return Axios.get("/api/moods");
+    },
+
+    getJournal: function(){
+        return Axios.get("/api/journal");
+    },
+
+    getRemembers: function(){
+        return Axios.get("/api/remembers");
     }
+
 }
 
