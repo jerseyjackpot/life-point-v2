@@ -13,9 +13,8 @@ passport.use(
     (email, password, done) => {
       // When a user tries to sign in this code runs
       db.User.findOne({
-        where: {
-          email: email
-        }
+        email: email
+        
       }).then(dbUser => {
         // If there's no user with the given email
         if (!dbUser) {
@@ -24,7 +23,7 @@ passport.use(
           });
         }
         // If there is a user with the given email, but the password the user gives us is incorrect
-        else if (!dbUser.validPassword(password)) {
+        else if (!dbUser.comparePassword(password)) {
           return done(null, false, {
             message: "Incorrect password."
           });

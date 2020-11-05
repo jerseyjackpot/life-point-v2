@@ -4,8 +4,8 @@ import API from "../utils/API";
 
 function SignUp(props){
     const {email, setEmail, loggedin, setLoggedin} = useContext (UserContext);
-    const emailInput = useRef("");
-    const passwordInput = useRef("");
+    const emailInput = useRef();
+    const passwordInput = useRef();
     const handleSubmit = function(event){
         event.preventDefault();
         console.log(event);
