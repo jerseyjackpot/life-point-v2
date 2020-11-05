@@ -26,7 +26,7 @@ module.exports = function (app) {
       password: req.body.password
     })
       .then((data) => {
-        res.json({email: data.email});
+        res.json({ email: data.email });
       })
       .catch(err => {
         console.log("something went wrong")
@@ -161,15 +161,16 @@ module.exports = function (app) {
       });
     });
   });
-  
-  app.get("/api/affirmation", function (req, res){
-    db.Affirmation.findOne({
-      order: db.sequelize.random()
-    }).then(function (postAffirm){
-      res.json(postAffirm)
+
+  app.get("/api/affirmation", function (req, res) {
+    db.Affirmation.count().exec(function (err, count) {
+      let random = Math.floor(Math.random()*count);
+
+      db.Affirmation.findOne({}).skip(random).then(function (postAffirm) {
+        res.json(postAffirm)
+      })
     })
-        
-      
+
   })
 
   // API call to get the calendar data
@@ -177,8 +178,10 @@ module.exports = function (app) {
     // Gets the data for each mood based on the journal and UserId they are tied to
     db.Mood.findAll({
       include: [
-        { model: db.Journal, 
-          where: { UserId: req.user.id }}]
+        {
+          model: db.Journal,
+          where: { UserId: req.user.id }
+        }]
     }).then(function (dbJournal) {
       res.json(dbJournal);
     });
