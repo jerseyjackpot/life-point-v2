@@ -38,13 +38,19 @@ module.exports = function (app) {
   app.post("/api/entry", (req, res) => {
     // console.log(req.body);
     // Creates the journal first
+    let id = 0;
+    if(req.user){
+      id = req.user.id;
+    }
     db.Journal.create({
-      entry: req.body.data1.entry,
-      date: req.body.data1.date,
-      UserId: req.user.id
+      entry: req.body.entry,
+      date: req.body.date,
+      UserId: id
     })
       .then(data => {
-        const journalId = data.dataValues.id;
+        console.log(data);
+        const JournalId = data._id;
+  //       const journalId = data.dataValues.id;
         // console.log(data);
         // Creates the grateful, remember, and mood data after the journal in order to use the id
         const gratefulC = db.Grateful.create({
@@ -88,7 +94,8 @@ module.exports = function (app) {
         Promise.all([gratefulC, rememberC, moodC])
           .then(data => {
             console.log(data);
-            res.json({ redirect: "/home" });
+            res.json(data);
+            //res.json({ redirect: "/home" });
           })
           .catch(err => {
             res.status(401).json(err);
