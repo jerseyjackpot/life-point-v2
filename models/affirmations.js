@@ -1,8 +1,8 @@
-// Model for the affirmations
-module.exports = function(sequelize, DataTypes) {
-  const Affirmation = sequelize.define("Affirmation", {
-    quote: { type: DataTypes.STRING }
-  });
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-  return Affirmation;
-};
+const affirmationSchema = new Schema({
+  quote: { type: String }
+});
+const Affirmation = mongoose.model("Affirmation", affirmationSchema);
+module.exports = Affirmation;

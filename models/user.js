@@ -1,36 +1,39 @@
-// Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
+const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-// Creating our User model
-module.exports = function(sequelize, DataTypes) {
-  const User = sequelize.define("User", {
-    // The email cannot be null, and must be a proper email before creation
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    },
-    // The password cannot be null
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  });
-  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
-  // this.password is the hashed password
-  User.prototype.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
-  };
-  // Hooks are automatic methods that run during various phases of the User Model lifecycle
-  // In this case, before a User is created, we will automatically hash their password
-  User.addHook("beforeCreate", user => {
-    user.password = bcrypt.hashSync(
-      user.password,
-      bcrypt.genSaltSync(10),
-      null
-    );
-  });
-  return User;
+const Schema = mongoose.Schema;
+const SALT_WORK_FACTOR = 8;
+
+const userSchema = new Schema({
+  email: { type: String, required: true, unique : true },
+  password: { type: String, required: true },
+  date: { type: Date, default: Date.now }
+});
+
+userSchema.pre('save', function(next) {
+    var user = this;
+
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) return next();
+
+    // generate a salt
+    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+        if (err) return next(err);
+
+        // hash the password along with our new salt
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            if (err) return next(err);
+
+            // override the cleartext password with the hashed one
+            user.password = hash;
+            next();
+        });
+    });
+});
+
+userSchema.methods.comparePassword = function(candidatePassword) {
+    return bcrypt.compareSync(candidatePassword, this.password);
 };
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

@@ -12,7 +12,7 @@ module.exports = function (app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      _id: req.user._id
     });
   });
 
@@ -25,8 +25,8 @@ module.exports = function (app) {
       email: req.body.email,
       password: req.body.password
     })
-      .then(() => {
-        res.redirect(307, "/api/login");
+      .then((data) => {
+        res.json({email: data.email});
       })
       .catch(err => {
         console.log("something went wrong")
@@ -188,7 +188,7 @@ module.exports = function (app) {
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.json(true);
   });
 
   // Route for getting some data about our user to be used client side
@@ -200,10 +200,10 @@ module.exports = function (app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       console.log(req.user.email);
-      console.log(req.user.id);
+      console.log(req.user._id);
       res.json({
         email: req.user.email,
-        id: req.user.id
+        _id: req.user._id
       });
     }
   });
