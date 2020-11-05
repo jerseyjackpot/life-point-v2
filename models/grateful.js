@@ -31,7 +31,6 @@ const gratefulSchema = new Schema({
   two: {
     type: String,
   },
-  // saved book id from GoogleBooks
   three: {
     type: String,
   },
