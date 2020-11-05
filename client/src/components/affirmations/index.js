@@ -8,7 +8,7 @@ const [affirmation, setAffirmation] = useState({quote: ""});
 
 useEffect(() =>{
   API.getAffirmation().then(data =>{
-    
+    console.log(data);
     setAffirmation(data.data);
   })
 },[])
