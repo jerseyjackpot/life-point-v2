@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
+import { Dropdown, DropdownButton } from "react-bootstrap";
+
 
 function Habitailment() {
-    const [habinput, setHabit] = useState({ quote: "" });
+  const [habinput, setHabit] = useState({ quote: "" });
 
-    useEffect(() => {
-        API.getHabitailment().then(data => {
-            console.log(data)
-            setHabit(data.data);
-        })
-    }, [])
+  useEffect(() => {
+    API.getHabitailment().then(data => {
+      console.log(data)
+      setHabit(data.data);
+    })
+  }, [])
 
-return(
+  return (
     <>
     <h2 className="Titles">
-      Habits
+        Habits
     </h2>
     <div className="habits">
       <div className="form-group row">
@@ -97,7 +99,7 @@ return(
     </div>
 
     <h2 className="Titles">
-      Ailments
+        Ailments
     </h2>
     <div className="form-group row">
       <div className="col-sm-5">Headache?</div>
@@ -131,8 +133,7 @@ return(
       <div className="col-sm-7">
         <div className="form-check">
           <input className="form-check-input" type="checkbox" id="insomnia"/>
-          
-        </div>
+          </div>
       </div>
     </div>
     <div className="form-group row">
@@ -140,23 +141,17 @@ return(
       <div className="col-sm-7">
         <div className="form-check">
           <input className="form-check-input" type="checkbox" id="menstruation"/>
-          
+          </div>
         </div>
       </div>
-    </div>
-    <div className="dropdown">
-      <button className="btn btn-secondary dropdown-toggle col-sm-7" type="button" id="appetiteDropdownButton"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-appetite="">
-        Appetite?
-      </button>
-      <div className="dropdown-menu" aria-labelledby="appetiteDropdownButton" id="appetite">
-        <a className="dropdown-item appetite-dropdown" data-appetite-value="1">Low</a>
-        <a className="dropdown-item appetite-dropdown" data-appetite-value="2">Medium</a>
-        <a className="dropdown-item appetite-dropdown" data-appetite-value="3">High</a>
-        <a className="dropdown-item appetite-dropdown" data-appetite-value="4">Very High</a>
-      </div>
-    </div>
+    <DropdownButton id="dropdown-item-button appetite" title="Dropdown button">
+  <Dropdown.ItemText>Appetite?</Dropdown.ItemText>
+  <Dropdown.Item className="dropdown-item appetite-dropdown" as="button" data-appetite-value="1">Low</Dropdown.Item>
+  <Dropdown.Item className="dropdown-item appetite-dropdown" as="button" data-appetite-value="2"> Medium</Dropdown.Item >
+    <Dropdown.Item className="dropdown-item appetite-dropdown" as="button" data-appetite-value="3"> High</Dropdown.Item >
+      <Dropdown.Item className="dropdown-item appetite-dropdown" as="button" data-appetite-value="4"> Very High</Dropdown.Item >
+    </DropdownButton>
     </>
-)
+    )
 }
 export default Habitailment;

@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 function Grateful() {
-    const [gratefulList, setGrate] = useState({ quote: "" });
+    // const [gratefulList, setGrate] = useState({ quote: "" });
 
-    useEffect(() => {
-        API.getGrate().then(data => {
-            console.log(data)
-            setGrate(data.data);
-        })
-    }, [])
+    // useEffect(() => {
+    //     API.getGrate().then(data => {
+    //         console.log(data)
+    //         setGrate(data.data);
+    //     })
+    // }, [])
 
 return(
     <div className="grateful titles">
