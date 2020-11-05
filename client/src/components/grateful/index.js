@@ -12,6 +12,7 @@ function Grateful() {
     // }, [])
 
 return(
+  <>
     <div className="grateful titles">
       <h2>Grateful For:</h2>
       <div className="input-group mb-3">
@@ -50,6 +51,7 @@ return(
           id="grateful5"/>
       </div>
     </div>
+    </>
 );
 }
-export default Grateful();
+export default Grateful;

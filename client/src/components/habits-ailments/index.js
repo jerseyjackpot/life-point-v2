@@ -4,14 +4,7 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 
 
 function Habitailment() {
-  const [habinput, setHabit] = useState({ quote: "" });
-
-  useEffect(() => {
-    API.getHabitailment().then(data => {
-      console.log(data)
-      setHabit(data.data);
-    })
-  }, [])
+  
 
   return (
     <>
@@ -92,12 +85,10 @@ function Habitailment() {
         <div className="col-sm-7">
           <div className="form-check">
             <input className="form-check-input" type="checkbox" id="selfCare"/>
-            
           </div>
         </div>
       </div>
     </div>
-
     <h2 className="Titles">
         Ailments
     </h2>
@@ -106,7 +97,6 @@ function Habitailment() {
       <div className="col-sm-7">
         <div className="form-check">
           <input className="form-check-input" type="checkbox" id="headAche"/>
-          
         </div>
       </div>
     </div>
@@ -114,8 +104,7 @@ function Habitailment() {
       <div className="col-sm-5">Nausea?</div>
       <div className="col-sm-7">
         <div className="form-check">
-          <input className="form-check-input" type="checkbox" id="nausea"/>
-          
+          <input className="form-check-input" type="checkbox" id="nausea"/> 
         </div>
       </div>
     </div>
@@ -124,7 +113,6 @@ function Habitailment() {
       <div className="col-sm-7">
         <div className="form-check">
           <input className="form-check-input" type="checkbox" id="exhaustion"/>
-          
         </div>
       </div>
     </div>
@@ -144,6 +132,7 @@ function Habitailment() {
           </div>
         </div>
       </div>
+      <div className="form-group row">
     <DropdownButton id="dropdown-item-button appetite" title="Dropdown button">
   <Dropdown.ItemText>Appetite?</Dropdown.ItemText>
   <Dropdown.Item className="dropdown-item appetite-dropdown" as="button" data-appetite-value="1">Low</Dropdown.Item>
@@ -151,6 +140,8 @@ function Habitailment() {
     <Dropdown.Item className="dropdown-item appetite-dropdown" as="button" data-appetite-value="3"> High</Dropdown.Item >
       <Dropdown.Item className="dropdown-item appetite-dropdown" as="button" data-appetite-value="4"> Very High</Dropdown.Item >
     </DropdownButton>
+    </div>
+    
     </>
     )
 }

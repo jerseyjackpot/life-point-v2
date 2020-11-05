@@ -1,16 +1,21 @@
 /* Body */
 body{
     /* background-image: url('./img/newbackground1.png') !important; */
-    background-size:cover;
     color: #8860D0;
     font-size: 14px;
-    height: 100%;
-    overflow: auto;
     padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    overflow: scroll;
   }
-  
+  #lead {
+    font-size: large;
+  }
   body.main-layout {
     font-size: 1.5rem;
+  }
+
+  p{
+    font-size: large;
   }
   
   /* Text elements */
@@ -25,6 +30,13 @@ body{
   nav {
     font-family: 'Neucha', cursive;
     justify-items: baseline;
+    width: 100%;
+    
+  }
+  #navbar-br {
+    font-size: large;
+    display: flex;
+    flex-direction: column;
   }
   
   .signup,
@@ -33,7 +45,7 @@ body{
   };
   
   h2{
-    text-decoration: underline;
+   font-size: x-large;
   };
   
   .columns{
@@ -47,6 +59,7 @@ body{
   .image{
     display:flex;
     flex-direction: row;
+    overflow: scroll;
   }
   
   .moods{
@@ -68,8 +81,9 @@ body{
   }
   
   .affirmation{
-    height: 200px;
+    height: 100px;
     border-style: solid;
+    font-size: large;
   }
   
   #resources{
@@ -77,6 +91,7 @@ body{
     border-radius: 1cm;
     border-style: solid;
     font-family: 'Neucha', cursive;
+    font-size: large;
   }
   
   .resbar{
@@ -118,6 +133,10 @@ body{
     text-align: center;
     font-family: 'Neucha', cursive;
     font-weight: bolder;
-    padding-bottom: 1rem;
+    padding-bottom: 0.3rem;
     padding-top: 0.3rem;
+  }
+
+  li{
+    font-size: large;
   }

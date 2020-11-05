@@ -16,17 +16,7 @@ export default {
         return Axios.get("/api/affirmation");
         
     },
-    getMoods: function(){
-        return Axios.get("/api/moods");
-    },
-
-    getJournal: function(){
-        return Axios.get("/api/journal");
-    },
-
-    getRemembers: function(){
-        return Axios.get("/api/remembers");
-    }
+    
 
 }
 
