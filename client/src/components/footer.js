@@ -6,7 +6,7 @@ function Footer() {
   const {email, loggedin} = useContext (UserContext);
   return (
     <div>
-      {loggedin && "Logged in footer"}
+      {/* {loggedin && "Logged in footer"} */}
       <div className="fixed-bottom">
         <footer className="footer">
           <h2>Created by Group 4 :-)</h2>
@@ -14,7 +14,7 @@ function Footer() {
         </footer>
       </div>
     </div>
-  );
+  )
 }
 
 export default Footer;

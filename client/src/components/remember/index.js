@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API"
 
 function Remembers() {
-    const [RemList, setRems] = useState({ quote: "" });
+    // const [RemList, setRems] = useState({ quote: "" });
 
-    useEffect(() => {
-        API.getRems().then(data => {
-            console.log(data)
-            setRems(data.data);
-        })
-    },
-        [])
+    // useEffect(() => {
+    //     API.getRems().then(data => {
+    //         console.log(data)
+    //         setRems(data.data);
+    //     })
+    // },
+    //     [])
 
     return (
     <>

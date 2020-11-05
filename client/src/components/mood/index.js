@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 function Moods() {
-  const [moodList, setMoods] = useState({ quote: "" });
+  // const [moodList, setMoods] = useState({ quote: "" });
 
-  useEffect(() => {
-    API.getMoods().then(data => {
-      console.log(data)
-      setMoods(data.data);
-    })
-  }, [])
+  // useEffect(() => {
+  //   API.getMoods().then(data => {
+  //     console.log(data)
+  //     setMoods(data.data);
+  //   })
+  // }, [])
 
   return (
     <div className="container">

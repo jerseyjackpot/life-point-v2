@@ -1,6 +1,7 @@
 import React, { Component, useEffect } from 'react';
 import Calendar from 'rc-year-calendar';
 import "../pages/style.css";
+import Nav from '../components/navbar';
  
  
   function CalendarLP() {
@@ -13,9 +14,10 @@ import "../pages/style.css";
     }
 
     return (
-      <div>
+      <>
+      <Nav />
         <Calendar onDayClick = {dayClickHandler}/>
-      </div>
+      </>
     );
   }
   

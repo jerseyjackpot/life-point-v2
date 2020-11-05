@@ -2,15 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 function Journal() {
-    // const [journalinput, setJourn] = useState({ quote: "" });
-
-    // useEffect(() => {
-    //     API.getJournal().then(data => {
-    //         console.log(data)
-    //         setJourn(data.data);
-    //     })
-    // }, [])
-
+    
 return(
     <div className="columns col-md-4">
     <div className="form-group">
@@ -23,4 +15,4 @@ return(
 )
 
 };
-export default Journal();
+export default Journal;
