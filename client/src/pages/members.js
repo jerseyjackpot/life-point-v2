@@ -12,11 +12,11 @@ function Members() {
     return (
         <div>
             <Affirmation/>
-            <Moods/>
+            {/* <Moods/>
             <Journal/>
             <Grateful/>
             <Remembers/>
-            <button type="submit" className="btn btn-primary" id="submit">Submit</button>
+            <button type="submit" className="btn btn-primary" id="submit">Submit</button> */}
         </div>
        
     )
