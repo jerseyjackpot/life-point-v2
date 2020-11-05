@@ -7,8 +7,8 @@ function Footer() {
   return (
     <div>
       {loggedin && "Logged in footer"}
-      <div class="fixed-bottom">
-        <footer class="footer">
+      <div className="fixed-bottom">
+        <footer className="footer">
           <h2>Created by Group 4 :-)</h2>
           <h3>Cristhal, Jackie, Mustafa, and Pat</h3>
         </footer>

@@ -16,7 +16,7 @@ function Members() {
             <Journal/>
             <Grateful/>
             <Remembers/>
-           
+            <button type="submit" className="btn btn-primary" id="submit">Submit</button>
         </div>
        
     )
