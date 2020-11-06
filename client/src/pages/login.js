@@ -10,6 +10,7 @@ function Login(props) {
     const History = useHistory();
     const handleSubmit = function (event) {
         event.preventDefault();
+        console.log(event + email + loggedin);
         console.log(event);
         console.log(emailInput.current.value);
         console.log(passwordInput.current.value);

@@ -12,7 +12,7 @@ module.exports = function (app) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      _id: req.user._id
+      id: req.user.id
     });
   });
 
@@ -20,17 +20,14 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
-    console.log("Sign Up Route Hit", req.body)
-    db.User.insertOne({
+    db.User.create({
       email: req.body.email,
       password: req.body.password
     })
-      .then((data) => {
-        console.log("signup it worked!");
-        res.json({ email: data.email });
+      .then(() => {
+        res.redirect(307, "/api/login");
       })
       .catch(err => {
-        console.log("something went wrong")
         res.status(401).json(err);
       });
   });
@@ -39,19 +36,13 @@ module.exports = function (app) {
   app.post("/api/entry", (req, res) => {
     // console.log(req.body);
     // Creates the journal first
-    let id = 0;
-    if(req.user){
-      id = req.user.id;
-    }
     db.Journal.create({
-      entry: req.body.entry,
-      date: req.body.date,
-      UserId: id
+      entry: req.body.data1.entry,
+      date: req.body.data1.date,
+      UserId: req.user.id
     })
       .then(data => {
-        console.log(data);
-        const JournalId = data._id;
-  //       const journalId = data.dataValues.id;
+        const journalId = data.dataValues.id;
         // console.log(data);
         // Creates the grateful, remember, and mood data after the journal in order to use the id
         const gratefulC = db.Grateful.create({
@@ -95,8 +86,7 @@ module.exports = function (app) {
         Promise.all([gratefulC, rememberC, moodC])
           .then(data => {
             console.log(data);
-            res.json(data);
-            //res.json({ redirect: "/home" });
+            res.json({ redirect: "/home" });
           })
           .catch(err => {
             res.status(401).json(err);
@@ -170,26 +160,14 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/affirmation", function (req, res) {
-    db.Affirmation.count().exec(function (err, count) {
-      let random = Math.floor(Math.random()*count);
-
-      db.Affirmation.findOne({}).skip(random).then(function (postAffirm) {
-        res.json(postAffirm)
-      })
-    })
-
-  })
 
   // API call to get the calendar data
   app.get("/api/calendar", function (req, res) {
     // Gets the data for each mood based on the journal and UserId they are tied to
     db.Mood.findAll({
       include: [
-        {
-          model: db.Journal,
-          where: { UserId: req.user.id }
-        }]
+        { model: db.Journal, 
+          where: { UserId: req.user.id }}]
     }).then(function (dbJournal) {
       res.json(dbJournal);
     });
@@ -199,7 +177,7 @@ module.exports = function (app) {
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
-    res.json(true);
+    res.redirect("/");
   });
 
   // Route for getting some data about our user to be used client side
@@ -211,10 +189,10 @@ module.exports = function (app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       console.log(req.user.email);
-      console.log(req.user._id);
+      console.log(req.user.id);
       res.json({
         email: req.user.email,
-        _id: req.user._id
+        id: req.user.id
       });
     }
   });
