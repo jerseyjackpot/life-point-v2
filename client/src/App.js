@@ -20,7 +20,7 @@ function App(){
 
     <Router>
       <UserContext.Provider value={{email, setEmail, loggedin, setLoggedin}}>
-  
+        
         <Header />
         <Switch>
           <Route exact path="/">

@@ -1,15 +1,22 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import "./homepage.css";
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-
+import UserContext from "../UserContext";
+import { useHistory } from "react-router-dom";
 
 
 function Homepage() {
+    const { email, setEmail, loggedin, setLoggedin } = useContext(UserContext);
+    const History = useHistory();
+    
+    // if not logged in, it redirects to login page
+    if(!loggedin){History.push("/login");}
     return (
         <>
-            
+           {console.log("user data",email,loggedin)} 
+          
             <h2>Please click on the buttons below to log your progress, review history, or reach out to a professional:</h2>
             <Container className="center">
                 <Row className="justify-content-center">
