@@ -68,5 +68,4 @@ N/A
 
 ### Questions 
 
-If you have any questions about the repo, open an issue or contact Jerseyjackpot directly at jerseyjackpot@gmail.com.
-You can also visit my [Github](https://github.com/Jerseyjackpot/life-point-v2)
+If you have any questions about the repo, open an issue or contact the Team members directly at [Team Members](#Team).
