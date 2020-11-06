@@ -9,7 +9,7 @@ A journal, an affirmation generator, a wellness tracker, a vlog, and a well-bein
 
 ## Table of Contents 
 
-* [Team Members](#Team)
+* [Team](#Team)
 
 * [Screenshots and Link](#Screenshots/Link)
 
@@ -23,7 +23,9 @@ A journal, an affirmation generator, a wellness tracker, a vlog, and a well-bein
 
 * [Questions](#Questions)
 
-## Team Members 
+## Team
+
+### Members
 
 * Cristhal Fuertes [Github](https://github.com/CMFuertes)
 * Jacqueline Smith [Github](https://github.com/jerseyjackpot)
