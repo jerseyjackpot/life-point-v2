@@ -2,7 +2,7 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-image: url('../img/Lotus.png') !important;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -74,12 +74,3 @@ h1 {
     background-color: #A16C86;
 }
 
-/* Footer */
-.footer{
-    background-color: gray;
-    color: black;
-    text-align: center;
-    font-family: 'Neucha', cursive;
-    font-weight: bolder;
-    padding-bottom: 1rem;
-  }
