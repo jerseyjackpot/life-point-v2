@@ -68,4 +68,4 @@ N/A
 
 ### Questions 
 
-If you have any questions about the repo, open an issue or contact the Team members directly at [Team Members](#Team Members).
+If you have any questions about the repo, open an issue or contact the Team members directly with the contacts listed above.
