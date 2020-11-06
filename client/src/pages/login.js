@@ -16,16 +16,16 @@ function Login(props) {
         API.login({ email: emailInput.current.value, password: passwordInput.current.value })
             .then(data => {
                 console.log(data);
-                History.push("/homepage")
                 setEmail(data.email);
                 setLoggedin(true);
+                History.push("/homepage");
             });
     }
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-6 col-md-offset-3">
-                    <h2>Signup Form</h2>
+                    <h2>Login Form</h2>
                     <form className="login" onSubmit={event => handleSubmit(event)} />
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>
@@ -33,7 +33,7 @@ function Login(props) {
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Password</label>
                             <input type="password" className="form-control" id="password-input" placeholder="Password" ref={passwordInput} />
-                            <button type="submit" className="btn btn-default" onClick={event => handleSubmit(event)}>SignUp</button>
+                            <button type="submit" className="btn btn-default" onClick={event => handleSubmit(event)}>Log In</button>
                         </div>
                         <br />
                         <p>Or sign up <a href="/signup">here</a></p>

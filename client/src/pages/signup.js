@@ -1,12 +1,13 @@
 import React, {useContext, useRef} from 'react';
 import UserContext from "../UserContext";
 import API from "../utils/API";
-
+import { useHistory } from "react-router-dom";
 
 function SignUp(props){
     const {email, setEmail, loggedin, setLoggedin} = useContext (UserContext);
     const emailInput = useRef();
     const passwordInput = useRef();
+    const History = useHistory();
     const handleSubmit = function(event){
         event.preventDefault();
         console.log(event);
@@ -15,8 +16,10 @@ function SignUp(props){
         API.signup({email: emailInput.current.value, password: passwordInput.current.value})
         .then( data => {
             console.log(data);
+            
             setEmail(data.email);
             setLoggedin(true);
+            History.push("/homepage");
         });
     }
     return (
