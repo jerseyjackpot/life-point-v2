@@ -28,7 +28,7 @@ A journal, an affirmation generator, a wellness tracker, a vlog, and a well-bein
 * Cristhal Fuertes [Github](https://github.com/CMFuertes)
 * Jacqueline Smith [Github](https://github.com/jerseyjackpot)
 * Mustafa Dag [Github](https://github.com/mustafadag84)
-* Patrick Wells[Github](https://github.com/black03mach)
+* Patrick Wells [Github](https://github.com/black03mach)
 
 ## Screenshots/Link
 to be populated soon!
