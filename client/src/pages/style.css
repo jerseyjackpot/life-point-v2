@@ -1,12 +1,12 @@
 /* Body */
 body{
-    /* background-image: url('./img/newbackground1.png') !important; */
     color: #8860D0;
     font-size: 14px;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
     overflow: scroll;
   }
+ 
   #lead {
     font-size: large;
   }
@@ -48,12 +48,12 @@ body{
    font-size: x-large;
   };
   
-  .columns{
+  /* .columns{
     border-style: solid;
     display: flex;
     flex-direction: row;
     color: #5AB9EA
-  };
+  }; */
   
   /* Images, buttons, and sections */
   .image{
@@ -61,7 +61,9 @@ body{
     flex-direction: row;
     overflow: scroll;
   }
-  
+  .container {
+    font-size: large;
+  }
   .moods{
     display: flex;
   }
@@ -75,9 +77,8 @@ body{
   }
   
   .moodimg{
-    padding: 5px;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
   
   .affirmation{
@@ -92,6 +93,7 @@ body{
     border-style: solid;
     font-family: 'Neucha', cursive;
     font-size: large;
+    margin-bottom: 1rem;
   }
   
   .resbar{
@@ -99,14 +101,12 @@ body{
   }
   
   
-  #exampleFormControlTextarea1{
-    /* background-image: url(./img/bound.jpg); */
-    background-size: cover;
-    padding-left: 50px;
-    padding-top: 30px;
-    background-color: bisque;
+  #Journalstyle{
+    padding-left: 60px;
+    padding-top: 40px;
+    /* background-image: url('../img/bound.jpg') !important; */
     font-family: 'Neucha', cursive;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   
   
@@ -133,8 +133,10 @@ body{
     text-align: center;
     font-family: 'Neucha', cursive;
     font-weight: bolder;
-    padding-bottom: 0.3rem;
+    width: 100%;
     padding-top: 0.3rem;
+    padding-bottom: 5px;
+    
   }
 
   li{

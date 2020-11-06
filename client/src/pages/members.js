@@ -7,21 +7,26 @@ import Grateful from "../components/grateful/index";
 import Remembers from "../components/remember/index";
 import Habitailment from '../components/habits-ailments';
 import Nav from '../components/navbar';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 
 
 function Members() {
     return (
-        <div>
+        <>
             <Nav/>
             <Affirmation/>
             <Moods/>
             <Remembers/>
             <Grateful/>
-            <Journal/>
             <Habitailment/>
-            {/* <button type="submit" className="btn btn-primary" id="submit">Submit</button> */}
-        </div>
+            <Journal/>
+            <Row className="w-100 justify-content-center">
+    <Button as="input" type="submit lg" value="Submit" />{' '}
+    </Row>
+            
+        </>
        
     )
 }

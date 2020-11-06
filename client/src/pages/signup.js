@@ -2,6 +2,7 @@ import React, {useContext, useRef} from 'react';
 import UserContext from "../UserContext";
 import API from "../utils/API";
 
+
 function SignUp(props){
     const {email, setEmail, loggedin, setLoggedin} = useContext (UserContext);
     const emailInput = useRef();
@@ -20,7 +21,6 @@ function SignUp(props){
     }
     return (
         <div className="container">
-            {/* email: {email}, loggedin: {loggedin && "We are logged in"} */}
         <div className="row">
             <div className="col-md-6 col-md-offset-3">
                 <h2>Signup Form</h2>
@@ -34,7 +34,7 @@ function SignUp(props){
                         <button type="submit" className="btn btn-default" onClick={ event => handleSubmit(event)}>SignUp</button>
                     </div>
                     <br />
-                    <p>Or Login<a href="/login">here</a></p>
+                    <p>Or Login <a href="/login">here</a></p>
                 </div>
             </div>
         </div>
