@@ -1,11 +1,11 @@
 /* Body */
-body{
+/* body{
     color: #8860D0;
     font-size: 14px;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
     overflow: scroll;
-  }
+  } */
  
   #lead {
     font-size: large;
@@ -82,7 +82,7 @@ body{
   }
   
   .affirmation{
-    height: 100px;
+    min-height: 100px;
     border-style: solid;
     font-size: large;
   }
@@ -107,6 +107,13 @@ body{
     /* background-image: url('../img/bound.jpg') !important; */
     font-family: 'Neucha', cursive;
     font-size: 2rem;
+  }
+
+  #root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   
@@ -133,6 +140,7 @@ body{
     text-align: center;
     font-family: 'Neucha', cursive;
     font-weight: bolder;
+  
     width: 100%;
     padding-top: 0.3rem;
     padding-bottom: 5px;

@@ -1,14 +1,15 @@
-import React, { Component, useEffect } from 'react';
+import React, {  useEffect } from 'react';
 import Calendar from 'rc-year-calendar';
 import "../pages/style.css";
 import Nav from '../components/navbar';
+import API from '../utils/API';
  
  
   function CalendarLP() {
 
 
     const dayClickHandler = (date, events) => {
-
+      //API.get("/api/entry/:id")
 
       console.log("dayclick", date)
     }
