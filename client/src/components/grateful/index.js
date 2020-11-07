@@ -4,7 +4,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Col from 'react-bootstrap/Col';
 
-function Grateful() {
+function Grateful(props) {
   return (
     <>
       <Row className="justify-content-center">
@@ -14,31 +14,31 @@ function Grateful() {
             <InputGroup.Prepend>
               <InputGroup.Text>1</InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl id="grateful1" />
+            <FormControl id="grateful1" ref={props.gratefulField1}/>
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroup.Prepend>
               <InputGroup.Text>2</InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl id="grateful2" />
+            <FormControl id="grateful2" ref={props.gratefulField2}/>
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroup.Prepend>
               <InputGroup.Text>3</InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl id="grateful3" />
+            <FormControl id="grateful3" ref={props.gratefulField3}/>
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroup.Prepend>
               <InputGroup.Text>4</InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl id="grateful4" />
+            <FormControl id="grateful4" ref={props.gratefulField4}/>
           </InputGroup>
           <InputGroup className="mb-3">
             <InputGroup.Prepend>
               <InputGroup.Text>5</InputGroup.Text>
             </InputGroup.Prepend>
-            <FormControl id="grateful5" />
+            <FormControl id="grateful5" ref={props.gratefulField5}/>
           </InputGroup>
         </Col>
       </Row>
