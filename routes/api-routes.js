@@ -21,7 +21,7 @@ module.exports = function (app) {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     console.log("Sign Up Route Hit", req.body)
-    db.User.insertOne({
+    db.User.create({
       email: req.body.email,
       password: req.body.password
     })
@@ -102,7 +102,7 @@ module.exports = function (app) {
             res.status(401).json(err);
           });
       });
-  });
+    });
 
 
   // API call for retrieving an old journal entry
@@ -170,26 +170,14 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/affirmation", function (req, res) {
-    db.Affirmation.count().exec(function (err, count) {
-      let random = Math.floor(Math.random()*count);
-
-      db.Affirmation.findOne({}).skip(random).then(function (postAffirm) {
-        res.json(postAffirm)
-      })
-    })
-
-  })
 
   // API call to get the calendar data
   app.get("/api/calendar", function (req, res) {
     // Gets the data for each mood based on the journal and UserId they are tied to
     db.Mood.findAll({
       include: [
-        {
-          model: db.Journal,
-          where: { UserId: req.user.id }
-        }]
+        { model: db.Journal, 
+          where: { UserId: req.user.id }}]
     }).then(function (dbJournal) {
       res.json(dbJournal);
     });
@@ -218,5 +206,14 @@ module.exports = function (app) {
       });
     }
   });
+  app.get("/api/affirmation", function (req, res) {
+    db.Affirmation.count().exec(function (err, count) {
+      let random = Math.floor(Math.random()*count);
 
+      db.Affirmation.findOne({}).skip(random).then(function (postAffirm) {
+        res.json(postAffirm)
+      })
+    })
+
+  })
 };

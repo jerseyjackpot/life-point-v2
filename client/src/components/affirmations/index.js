@@ -4,19 +4,19 @@ import chalk from "./chalk.jpg";
 import API from "../../utils/API"
 
 function Affirmation() {
-const [affirmation, setAffirmation] = useState({quote: ""});
+const [affirmation, setAffirmation] = useState({quote:""});
 
 useEffect(() =>{
   API.getAffirmation().then(data =>{
     console.log("get aff",data);
-    setAffirmation(data.data);
+    setAffirmation({quote: data.data.quote});
   })
 },[])
   return (
     <>
     {console.log("look", affirmation)}
       <Card className="affirmation" style={{ backgroundImage:`url(${chalk})` }}>
-        {/* <Card.Body>{JSON.stringify(affirmation.quote)}</Card.Body> */}
+        <Card.Body>{affirmation.quote}</Card.Body>
       </Card>
     </>
   );
