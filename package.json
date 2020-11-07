@@ -42,7 +42,9 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react-icons": "^3.11.0",
-    "react-numeric-input": "^2.2.3"
+    "react-numeric-input": "^2.2.3",
+    "recordrtc": "^5.6.1",
+    "web-vitals": "^0.2.4"
   },
   "devDependencies": {
     "chai": "^4.1.2",
