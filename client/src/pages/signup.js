@@ -13,7 +13,7 @@ function SignUp(props){
         console.log(event + email + loggedin);
         console.log(emailInput.current.value);
         console.log(passwordInput.current.value);
-        API.signup([{email: emailInput.current.value, password: passwordInput.current.value}])
+        API.signup({email: emailInput.current.value, password: passwordInput.current.value})
         .then( data => {
             console.log(data);
             
