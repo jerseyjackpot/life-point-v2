@@ -30,6 +30,23 @@ function Members() {
     const mood4 = useRef();
     const mood5 = useRef();
     const mood6 = useRef();
+    const medicationTaken = useRef();
+    const sleepHours = useRef();
+    const exerciseMinutes = useRef();
+    const nappingMinutes = useRef();
+    const caffeineServings = useRef();
+    const alcoholServings = useRef();
+    const digitalMediaHours = useRef();
+    const socialMinutes = useRef();
+    const showered = useRef();
+    const teethBrush = useRef();
+    const selfCare = useRef();
+    const headache = useRef();
+    const nausea = useRef();
+    const exhaustion = useRef();
+    const insomnia = useRef();
+    const menstruation = useRef();
+    const appetite = useRef();
 
     const handleOnClick = function (event){
         console.log({
@@ -69,7 +86,24 @@ function Members() {
             gratefulField3={gratefulField3} 
             gratefulField4={gratefulField4} 
             gratefulField5={gratefulField5}/>
-            <Habitailment/>
+            <Habitailment
+            medicationTaken = {medicationTaken}
+            sleepHours = {sleepHours}
+            exerciseMinutes = {exerciseMinutes}
+            nappingMinutes = {nappingMinutes}
+            caffeineServings = {caffeineServings}
+            alcoholServings = {alcoholServings}
+            digitalMediaHours = {digitalMediaHours}
+            socialMinutes = {socialMinutes}
+            showered = {showered}
+            teethBrush = {teethBrush}
+            selfCare = {selfCare}
+            headache = {headache}
+            nausea = {nausea}
+            exhaustion = {exhaustion}
+            insomnia = {insomnia}
+            menstruation = {menstruation}
+            appetite = {appetite} />
             <Journal
             journalField = {journalField}/>
             <Row className="w-100 justify-content-center">
