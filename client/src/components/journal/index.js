@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import bound from "./bound.jpg";
 import '../../pages/style.css';
 
-function Journal() {
+function Journal(props) {
     
 return(
     <>
@@ -15,7 +15,7 @@ return(
       <Col xs={8}>
       <h2 for="exampleFormControlTextarea1">Journal Entry</h2>
             <Form.Group controlId="exampleForm.ControlTextarea1">
-       <Form.Control id="Journalstyle" as="textarea" rows={20} style={{ backgroundImage:`url(${bound})`, backgroundRepeat: 'no-repeat'}}></Form.Control>
+       <Form.Control ref={props.journalField} id="Journalstyle" as="textarea" rows={20} style={{ backgroundImage:`url(${bound})`, backgroundRepeat: 'no-repeat'}}></Form.Control>
   </Form.Group>
   </Col>
     </Row>

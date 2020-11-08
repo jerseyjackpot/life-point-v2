@@ -23,6 +23,14 @@ function Members() {
     const gratefulField3 = useRef();
     const gratefulField4 = useRef();
     const gratefulField5 = useRef();
+    const journalField = useRef();
+    const mood1 = useRef();
+    const mood2 = useRef();
+    const mood3 = useRef();
+    const mood4 = useRef();
+    const mood5 = useRef();
+    const mood6 = useRef();
+
     const handleOnClick = function (event){
         console.log({
             rf1: rememberField1.current.value,
@@ -42,7 +50,13 @@ function Members() {
         <>
             <Nav/>
             <Affirmation/>
-            <Moods/>
+            <Moods
+            mood1 = {mood1}
+            mood2 = {mood2}
+            mood3 = {mood3}
+            mood4 = {mood4}
+            mood5 = {mood5}
+            mood5 = {mood6}/>
             <Remembers 
             rememberField1={rememberField1}
             rememberField2={rememberField2} 
@@ -56,7 +70,8 @@ function Members() {
             gratefulField4={gratefulField4} 
             gratefulField5={gratefulField5}/>
             <Habitailment/>
-            <Journal/>
+            <Journal
+            journalField = {journalField}/>
             <Row className="w-100 justify-content-center">
     <Button as="input" type="submit lg" value="Submit" onClick={handleOnClick}/>{' '}
     </Row>
