@@ -2,6 +2,8 @@ import React, {useContext, useRef} from 'react';
 import UserContext from "../UserContext";
 import API from "../utils/API";
 import { useHistory } from "react-router-dom";
+import { fadeInDown } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 
 function SignUp(props){
     const {email, setEmail, loggedin, setLoggedin} = useContext (UserContext);
