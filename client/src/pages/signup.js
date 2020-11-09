@@ -2,15 +2,8 @@ import React, {useContext, useRef} from 'react';
 import UserContext from "../UserContext";
 import API from "../utils/API";
 import { useHistory } from "react-router-dom";
-import { fadeInDown } from 'react-animations';
-import Radium, {StyleRoot} from 'radium';
+import ScrollAnimation from 'react-animate-on-scroll';
 
-const styles = {
-    fadeInDown: {
-      animation: 'x 1s',
-      animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
-    }
-  }
 
 
 function SignUp(props){
@@ -36,9 +29,9 @@ function SignUp(props){
         <div className="container">
         <div className="row">
             <div className="col-md-6 col-md-offset-3">
-            <StyleRoot>
-            <h1 style={styles.fadeInDown}>Signup Form</h1>
-            </StyleRoot>
+            <ScrollAnimation animateIn="fadeIn">
+            <h1>Signup Form</h1>
+            </ScrollAnimation>
                 <form className="login" onSubmit={ event => handleSubmit(event)}/>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
