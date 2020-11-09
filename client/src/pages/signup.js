@@ -7,7 +7,7 @@ import Radium, { StyleRoot } from 'radium';
 
 const styles = {
     fadeInDown: {
-        animation: 'x 1s',
+        animation: 'x 1.5s',
         animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
     }
 }
