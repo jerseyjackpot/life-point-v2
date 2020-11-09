@@ -8,13 +8,17 @@ import Col from 'react-bootstrap/Col';
 
 function Habitailment(props) {
 const [medTaken, setMedTaken] = useState(false);
-const [sleepTime, setSleepTime] = useState(0);
+
 
 const handClick = (event) => {
   setMedTaken(!medTaken);
 }
-const handleNumericInput = ()=> {
-
+// used ...stuff to see whats there
+// then used actual names to get the values
+const handleNumericInput = (num, numStr, target)=> {
+  console.log(num);
+  console.log(target.value);
+  props.setSleepTimeState(num);
 }
 
   return (
@@ -27,7 +31,7 @@ const handleNumericInput = ()=> {
         <Row className="justify-content-center">
             <Col xs={4}>Medication Taken?</Col>
             <Col xs={4}>
-              <Form.Group controlId="formBasicCheckbox">
+              <Form.Group>
                 <Form.Check ref={props.medicationTaken} type="checkbox" value={medTaken} onClick={handClick}/>
               </Form.Group>
             </Col>
@@ -37,7 +41,7 @@ const handleNumericInput = ()=> {
             <label for="sleepTime" className="col-sm col-form-label">Hours of Sleep?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput value={sleepTime} onChange={handleNumericInput} ref={props.sleepHours} className="form-control" id="sleepTime" />
+              <NumericInput value={props.sleepTimeState} onChange={handleNumericInput} ref={props.sleepHours} className="form-control" id="sleepTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -91,7 +95,7 @@ const handleNumericInput = ()=> {
           <Row className="justify-content-center">
             <Col xs={4}>Showered?</Col>
             <Col xs={4}>
-              <Form.Group controlId="shower">
+              <Form.Group>
                 <Form.Check ref={props.showered} type="checkbox" />
               </Form.Group>
 
@@ -100,7 +104,7 @@ const handleNumericInput = ()=> {
           <Row className="justify-content-center">
             <Col xs={4}>Brush teeth?</Col>
             <Col xs={4}>
-              <Form.Group controlId="teeth?">
+              <Form.Group>
                 <Form.Check ref={props.teethBrush} type="checkbox" />
               </Form.Group>
             </Col>
@@ -108,7 +112,7 @@ const handleNumericInput = ()=> {
           <Row className="justify-content-center">
             <Col xs={4}>Self Care?</Col>
             <Col xs={4}>
-              <Form.Group controlId="selfCare">
+              <Form.Group>
                 <Form.Check ref={props.selfCare} type="checkbox" />
               </Form.Group>
             </Col>

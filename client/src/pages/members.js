@@ -1,4 +1,4 @@
-import React,{ useRef } from 'react';
+import React,{ useRef, useState } from 'react';
 import "./style.css";
 import Affirmation from "../components/affirmations/index";
 import Moods from "../components/mood/index";
@@ -14,6 +14,11 @@ import CameraRecorder from '../components/video/Record';
 
 
 function Members() {
+    const [sleepTime, setSleepTime] = useState(0);
+    const setSleepTimeState = function(num){
+        console.log({prev: sleepTime});
+        setSleepTime(num);
+    }
     const rememberField1 = useRef();
     const rememberField2 = useRef();
     const rememberField3 = useRef();
@@ -62,7 +67,7 @@ function Members() {
             gf4: gratefulField4.current.value,
             gf5: gratefulField5.current.value, 
             medsTaken: medicationTaken.current.value,
-            slh: sleepHours.current.value
+            slh: sleepTime
         } )
         
     }
@@ -92,6 +97,8 @@ function Members() {
             <Habitailment
             medicationTaken = {medicationTaken}
             sleepHours = {sleepHours}
+            sleepTimeState = {sleepTime}
+            setSleepTimeState = {setSleepTimeState}
             exerciseMinutes = {exerciseMinutes}
             nappingMinutes = {nappingMinutes}
             caffeineServings = {caffeineServings}
