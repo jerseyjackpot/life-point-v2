@@ -1,14 +1,7 @@
 /* Body */
-/* body{
-    color: #8860D0;
-    font-size: 14px;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-    overflow: scroll;
-  } */
-
-
-  
+body{
+    background-image: url("../img/azure.jpg");
+  }
  
   #lead {
     font-size: large;
