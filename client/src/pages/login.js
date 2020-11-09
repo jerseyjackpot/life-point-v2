@@ -7,7 +7,7 @@ import Radium, { StyleRoot } from 'radium';
 
 const styles = {
     fadeInDown: {
-        animation: 'x 1s',
+        animation: 'x 1.5s',
         animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
     }
 }
@@ -36,6 +36,9 @@ function Login(props) {
         <div className="container">
             <div className="row">
                 <div className="col-md-6 col-md-offset-3">
+
+                <StyleRoot><h1 style={styles.fadeInDown}>Welcome back to Life Point 2.0</h1>
+                   </StyleRoot>
                     <StyleRoot>
                         <h1 style={styles.fadeInDown}>Login Here</h1>
                     </StyleRoot>

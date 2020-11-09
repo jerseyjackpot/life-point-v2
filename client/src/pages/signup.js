@@ -35,9 +35,15 @@ function SignUp(props) {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-6 col-md-offset-3">
+                <div className="col-md-6 col-md-offset-3"><br/>
                 <StyleRoot><h1 style={styles.fadeInDown}>Welcome to Life Point 2.0</h1>
-                    <p style={styles.fadeInDown}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p style={styles.fadeInDown}><br/>
+                        Life Point 2.0 is here to assist users in helping manage their 
+                        mental health in a format inspired by bullet journaling. Our comprehensive 
+                        app is a journal, an affirmation generator, a wellness tracker, and a well-being resource all in one. 
+                        With our latest feature users can now record video logs to assist on their journey to mental well-being. 
+
+                    </p>
                    </StyleRoot>
                     <StyleRoot>
                         <h2 style={styles.fadeInDown}>Signup Form</h2>

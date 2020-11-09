@@ -1,22 +1,31 @@
 import React from 'react';
 import "./style.css";
 import Nav from '../components/navbar';
+import { fadeInUp } from 'react-animations';
+import Radium, { StyleRoot } from 'radium';
 import "animate.css/animate.min.css";
 import ScrollAnimation from 'react-animate-on-scroll';
 
+
+const styles = {
+  fadeInUp: {
+      animation: 'x 1.5s',
+      animationName: Radium.keyframes(fadeInUp, 'fadeInUp')
+  }
+}
 
 function Resources() {
     return (
       <>
       <Nav/>
         <div className="container fluid" id="resources">
-            <h1 className="text-center">Resources</h1>
-            <p className="text-center">While we are confident Life Point will assist in helping with your day to day life, we
+            <StyleRoot><h1 className="text-center" style={styles.fadeInUp}>Resources</h1>
+            <p className="text-center"style={styles.fadeInUp} >While we are confident Life Point will assist in helping with your day to day life, we
             have provided a list of resources should you require further assitance. Below you can find links to
             hotlines, virtual access to licensed proffesionals as well as apps to help you get through the rough
-            times. Best of Luck!<i classNameName="fa fa-smile-o" aria-hidden="true"></i></p>
+            times. Best of Luck!</p></StyleRoot>
 
-            <h2 id="lead">Hotlines <i className="fa fa-life-ring" aria-hidden="true"></i></h2>
+            <h2 id="lead">Hotlines</h2>
             <ul>
                 <li><strong><a href="https://suicidepreventionlifeline.org/">National Suicide Prevention Lifeline
         </a></strong>:
@@ -36,7 +45,7 @@ function Resources() {
         Connect with a Crisis Counselor with this free 24/7 support at your fingertips.
     </li>
             </ul>
-            <ScrollAnimation animateIn="animate__fadeInUp"><h2 id="lead">Licensed Professionals <i className="fa fa-heart-o" aria-hidden="true"></i></h2>
+            <ScrollAnimation animateIn="animate__fadeInUp"><h2 id="lead">Licensed Professionals</h2>
             <ul>
                 <li><strong><a href="https://www.betterhelp.com/">BetterHelp </a></strong>Affordable, private online
       counseling. Talk with a licensed, professional therapist online.</li>
