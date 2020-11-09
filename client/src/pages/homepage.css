@@ -28,6 +28,8 @@ h2 {
 h1 {
     font-size: largearge;
     font-weight: bolder;
+    font-family: 'Neucha', cursive;
+    text-align: center;
 }
 
 /* Buttons */

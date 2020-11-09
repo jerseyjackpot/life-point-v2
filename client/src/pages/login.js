@@ -2,6 +2,16 @@ import React, { useContext, useRef } from 'react';
 import UserContext from "../UserContext";
 import API from "../utils/API";
 import { useHistory } from "react-router-dom";
+import { fadeInDown } from 'react-animations';
+import Radium, { StyleRoot } from 'radium';
+
+const styles = {
+    fadeInDown: {
+        animation: 'x 1.5s',
+        animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
+    }
+}
+
 
 function Login(props) {
     const { email, setEmail, loggedin, setLoggedin } = useContext(UserContext);
@@ -26,7 +36,12 @@ function Login(props) {
         <div className="container">
             <div className="row">
                 <div className="col-md-6 col-md-offset-3">
-                    <h2>Login Form</h2>
+
+                <StyleRoot><h1 style={styles.fadeInDown}>Welcome back to Life Point 2.0</h1>
+                   </StyleRoot>
+                    <StyleRoot>
+                        <h1 style={styles.fadeInDown}>Login Here</h1>
+                    </StyleRoot>
                     <form className="login" onSubmit={event => handleSubmit(event)} />
                     <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>
@@ -37,7 +52,7 @@ function Login(props) {
                             <button type="submit" className="btn btn-default" onClick={event => handleSubmit(event)}>Log In</button>
                         </div>
                         <br />
-                        <p>Or sign up <a href="/signup">here</a></p>
+                        <p id="logintext">Or sign up <a href="/signup">here</a></p>
 
                     </div>
                 </div>

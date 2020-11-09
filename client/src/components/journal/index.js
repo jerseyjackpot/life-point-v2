@@ -3,7 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import bound from "./bound.jpg";
+// import bound from "./bound.jpg";
+import textured from "./textured.jpg";
 import '../../pages/style.css';
 
 function Journal(props) {
@@ -15,7 +16,7 @@ return(
       <Col xs={8}>
       <h2 for="exampleFormControlTextarea1">Journal Entry</h2>
             <Form.Group controlId="exampleForm.ControlTextarea1">
-       <Form.Control ref={props.journalField} id="Journalstyle" as="textarea" rows={20} style={{ backgroundImage:`url(${bound})`, backgroundRepeat: 'no-repeat'}}></Form.Control>
+       <Form.Control ref={props.journalField} id="Journalstyle" as="textarea" rows={20} style={{ backgroundImage:`url(${textured})`, backgroundRepeat: 'no-repeat'}}></Form.Control>
   </Form.Group>
   </Col>
     </Row>
