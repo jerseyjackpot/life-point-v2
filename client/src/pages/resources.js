@@ -1,6 +1,7 @@
 import React from 'react';
 import "./style.css";
 import Nav from '../components/navbar';
+import "animate.css/animate.min.css";
 import ScrollAnimation from 'react-animate-on-scroll';
 
 
@@ -35,7 +36,7 @@ function Resources() {
         Connect with a Crisis Counselor with this free 24/7 support at your fingertips.
     </li>
             </ul>
-            <ScrollAnimation animateIn="fadeIn"><h2 id="lead">Licensed Professionals <i className="fa fa-heart-o" aria-hidden="true"></i></h2>
+            <ScrollAnimation animateIn="animate__fadeInUp"><h2 id="lead">Licensed Professionals <i className="fa fa-heart-o" aria-hidden="true"></i></h2>
             <ul>
                 <li><strong><a href="https://www.betterhelp.com/">BetterHelp </a></strong>Affordable, private online
       counseling. Talk with a licensed, professional therapist online.</li>
@@ -45,14 +46,14 @@ function Resources() {
   </ul></ScrollAnimation>
 
 
-                    <h2 id="lead">Apps To Help You Out <i className="fa fa-mobile" aria-hidden="true"></i></h2>
+  <ScrollAnimation animateIn="animate__fadeInUp"><h2 id="lead">Apps To Help You Out <i className="fa fa-mobile" aria-hidden="true"></i></h2>
                     <ul>
                         <li><strong><a href="https://www.calm.com/">Calm </a></strong>Calm Is The #1 App For Mental Fitness,
       Famous For Its Guided Meditations & Sleep Stories.</li>
                            
                             <li><strong><a href="https://www.headspace.com/">Headspace </a></strong>Live a healthier, happier, more
       well-rested life in just a few minutes a day with the Headspace app.</li>
-  </ul>
+  </ul></ScrollAnimation>
 
 </div>
 </>
