@@ -39,7 +39,6 @@ function App(){
 
           <Route exact path="/members">
             <Members />
-            <CameraRecorder />
           </Route>
           
           <Route exact path="/calendar">

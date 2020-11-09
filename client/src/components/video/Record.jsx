@@ -110,6 +110,7 @@ class CameraRecorder extends React.Component {
   // Renders the video recorder
   render() {
     return (
+      <>
       <div className="record-container">
         <h1 className="white-text">Video Recorder</h1>
         <div className="box">
@@ -137,6 +138,7 @@ class CameraRecorder extends React.Component {
           )}
         </div>
       </div>
+      </>
     );
   }
 }

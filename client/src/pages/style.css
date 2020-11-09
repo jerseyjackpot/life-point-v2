@@ -20,7 +20,7 @@
   
   /* Text elements */
   header {
-    background-color: #49B1A7;
+    background-color: rgb(102, 154, 203);
     font-weight: bolder;
     text-align: center;
     padding: 2rem;
@@ -135,7 +135,7 @@
   
   /* Footer */
   .footer{
-    background-color: gray;
+    background-color: rgb(102, 154, 203);
     color: black;
     text-align: center;
     font-family: 'Neucha', cursive;
