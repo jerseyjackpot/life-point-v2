@@ -5,6 +5,14 @@ import { useHistory } from "react-router-dom";
 import { fadeInDown } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
 
+const styles = {
+    fadeInDown: {
+      animation: 'x 1s',
+      animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
+    }
+  }
+
+
 function SignUp(props){
     const {email, setEmail, loggedin, setLoggedin} = useContext (UserContext);
     const emailInput = useRef();
