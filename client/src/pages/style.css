@@ -16,6 +16,11 @@
 
   p{
     font-size: large;
+    text-align: center;
+
+  }
+  #logintext{
+    text-align: left;
   }
   
   /* Text elements */
@@ -41,7 +46,7 @@
   
   .signup,
   form.login {
-    margin-top: 50px;
+    margin-top: 10px;
   };
   
   h2{
