@@ -1,6 +1,7 @@
 import React from 'react';
 import "./style.css";
 import Nav from '../components/navbar';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 
 function Resources() {
@@ -34,14 +35,14 @@ function Resources() {
         Connect with a Crisis Counselor with this free 24/7 support at your fingertips.
     </li>
             </ul>
-            <h2 id="lead">Licensed Professionals <i className="fa fa-heart-o" aria-hidden="true"></i></h2>
+            <ScrollAnimation animateIn="fadeIn"><h2 id="lead">Licensed Professionals <i className="fa fa-heart-o" aria-hidden="true"></i></h2>
             <ul>
                 <li><strong><a href="https://www.betterhelp.com/">BetterHelp </a></strong>Affordable, private online
       counseling. Talk with a licensed, professional therapist online.</li>
                     <li><strong><a href="https://www.talkspace.com/">TalkSpace </a></strong>Connect with a licensed therapist
                     from the palm of your hand, and experience the most convenient, affordable way to improve your mental
       health.</li>
-  </ul>
+  </ul></ScrollAnimation>
 
 
                     <h2 id="lead">Apps To Help You Out <i className="fa fa-mobile" aria-hidden="true"></i></h2>
