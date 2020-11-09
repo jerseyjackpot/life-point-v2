@@ -36,7 +36,9 @@ function SignUp(props){
         <div className="container">
         <div className="row">
             <div className="col-md-6 col-md-offset-3">
-                <h2>Signup Form</h2>
+            <StyleRoot>
+            <h1 style={styles.fadeInDown}>Signup Form</h1>
+            </StyleRoot>
                 <form className="login" onSubmit={ event => handleSubmit(event)}/>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
