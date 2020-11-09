@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useeffect} from "react";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -7,7 +7,15 @@ import Col from 'react-bootstrap/Col';
 
 
 function Habitailment(props) {
+const [medTaken, setMedTaken] = useState(false);
+const [sleepTime, setSleepTime] = useState(0);
 
+const handClick = (event) => {
+  setMedTaken(!medTaken);
+}
+const handleNumericInput = ()=> {
+
+}
 
   return (
     <>
@@ -20,17 +28,16 @@ function Habitailment(props) {
             <Col xs={4}>Medication Taken?</Col>
             <Col xs={4}>
               <Form.Group controlId="formBasicCheckbox">
-                <Form.Check ref={props.medicationTaken} type="checkbox" />
+                <Form.Check ref={props.medicationTaken} type="checkbox" value={medTaken} onClick={handClick}/>
               </Form.Group>
             </Col>
           </Row>
           <Row className="justify-content-center">
           <Col xs={4}>
-            <label for="inputEmail3" className="col-sm col-form-label">Hours of Sleep?</label>
+            <label for="sleepTime" className="col-sm col-form-label">Hours of Sleep?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.sleepHours} className="form-control" id="sleepTime" />
-            
+              <NumericInput value={sleepTime} onChange={handleNumericInput} ref={props.sleepHours} className="form-control" id="sleepTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">

@@ -9,6 +9,7 @@ import Habitailment from '../components/habits-ailments';
 import Nav from '../components/navbar';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import CameraRecorder from '../components/video/Record';
 
 
 
@@ -59,7 +60,9 @@ function Members() {
             gf2: gratefulField2.current.value,
             gf3: gratefulField3.current.value,
             gf4: gratefulField4.current.value,
-            gf5: gratefulField5.current.value
+            gf5: gratefulField5.current.value, 
+            medsTaken: medicationTaken.current.value,
+            slh: sleepHours.current.value
         } )
         
     }
@@ -106,6 +109,7 @@ function Members() {
             appetite = {appetite} />
             <Journal
             journalField = {journalField}/>
+            <CameraRecorder />
             <Row className="w-100 justify-content-center">
     <Button as="input" type="submit lg" value="Submit" onClick={handleOnClick}/>{' '}
     </Row>

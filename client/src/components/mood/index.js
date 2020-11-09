@@ -11,8 +11,8 @@ function Moods(props) {
         <h2 className="justify-content-center">Mood</h2>
         </Col>
         </Row>
-        <Row className="justify-content-center">
-        <div className="moods">
+        <Row className="justify-content-center moods">
+        
           <Col xs={2}>
             <img
               src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/smiling-face-with-open-mouth-and-smiling-eyes_1f604.png"
@@ -60,7 +60,6 @@ function Moods(props) {
               <input ref={props.mood6} className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="6" />
             </div>
           </Col>
-          </div>
         </Row>
         </>
 
