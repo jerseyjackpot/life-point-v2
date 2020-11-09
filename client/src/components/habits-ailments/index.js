@@ -6,7 +6,7 @@ import NumericInput from 'react-numeric-input';
 import Col from 'react-bootstrap/Col';
 
 
-function Habitailment() {
+function Habitailment(props) {
 
 
   return (
@@ -29,7 +29,7 @@ function Habitailment() {
             <label for="inputEmail3" className="col-sm col-form-label">Hours of Sleep?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={sleepHours} className="form-control" id="sleepTime" />
+              <NumericInput ref={props.sleepHours} className="form-control" id="sleepTime" />
             
             </Col>
           </Row>
