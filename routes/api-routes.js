@@ -47,23 +47,23 @@ module.exports = function (app) {
 
     db.Entry.create({
       mood: parseInt(req.body.mood),
-      // medication: req.body.medication,
-      // hoursSleep: parseInt(req.body.hoursSleep),
-      // minutesExercise: parseInt(req.body.minutesExercise),
-      // minutesNapping: parseInt(req.body.minutesNapping),
-      // servingsCaffeine: parseInt(req.body.servingsCaffeine),
-      // servingsAlcohol: parseInt(req.body.servingsAlcohol),
-      // hoursTV: parseInt(req.body.hoursTV),
-      // showered: req.body.showered,
-      // brushedTeeth: req.body.brushedTeeth,
-      // selfCare: req.body.selfCare,
-      // minutesSocial: parseInt(req.body.minutesSocial),
-      // headache: req.body.headache,
-      // nausea: req.body.nausea,
-      // exhaustion: req.body.exhaustion,
-      // insomnia: req.body.insomnia,
-      // appetite: req.body.appetite,
-      // menstruation: req.body.menstruation,
+      medication: parseBool(req.body.medication),
+      hoursSleep: parseInt(req.body.hoursSleep),
+      minutesExercise: parseInt(req.body.minutesExercise),
+      minutesNapping: parseInt(req.body.minutesNapping),
+      servingsCaffeine: parseInt(req.body.servingsCaffeine),
+      servingsAlcohol: parseInt(req.body.servingsAlcohol),
+      hoursTV: parseInt(req.body.hoursTV),
+      showered: parseBool(req.body.showered),
+      brushedTeeth: parseBool(req.body.brushedTeeth),
+      selfCare: parseBool(req.body.selfCare),
+      minutesSocial: parseInt(req.body.minutesSocial),
+      headache: parseBool(req.body.headache),
+      nausea: parseBool(req.body.nausea),
+      exhaustion: parseBool(req.body.exhaustion),
+      insomnia: parseBool(req.body.insomnia),
+      appetite: parseBool(req.body.appetite),
+      menstruation: parseBool(req.body.menstruation),
       gratefulEntryOne: req.body.gratefulEntryOne,
       gratefulEntryTwo: req.body.gratefulEntryTwo,
       gratefulEntryThree: req.body.gratefulEntryThree,
@@ -80,7 +80,7 @@ module.exports = function (app) {
     }).then(data => {
       console.log(data);
 
-      // const EntryId = data._id;
+      const EntryId = data._id;
       res.json(data);
     })
       .catch(err => {
@@ -155,69 +155,69 @@ module.exports = function (app) {
 
 
 // API call for retrieving an old journal entry
-app.get("/api/entry/:id", (req, res) => {
-  // console.log(req.params.id);
-  // Find one journal entry that matches the id, based on the UserId
-  db.Journal.findOne({
-    where: {
-      UserId: req.user.id,
-      id: req.params.id
-    },
-    include: [db.Mood, db.Grateful, db.Remember],
-  }).then(function (dbJournal) {
-    // console.log(dbJournal);
-    const rando = (Math.floor(Math.random() * 101) + 1);
-    db.Affirmation.findOne({
-      where: {
-        id: rando
-      },
-    }).then(function (data) {
-      // Renders the data onto the historical page
-      const appetiteArray = ["Low", "Medium", "High", "Very High"];
-      const handlebarsObject = {
-        userName: "Charlie",
-        medData: dbJournal.dataValues.Moods[0].medication,
-        hoursData: dbJournal.dataValues.Moods[0].hoursSleep,
-        moodData1: (dbJournal.dataValues.Moods[0].mood === 1) ? true : false,
-        moodData2: (dbJournal.dataValues.Moods[0].mood === 2) ? true : false,
-        moodData3: (dbJournal.dataValues.Moods[0].mood === 3) ? true : false,
-        moodData4: (dbJournal.dataValues.Moods[0].mood === 4) ? true : false,
-        moodData5: (dbJournal.dataValues.Moods[0].mood === 5) ? true : false,
-        moodData6: (dbJournal.dataValues.Moods[0].mood === 6) ? true : false,
-        exercise: dbJournal.dataValues.Moods[0].minutesExercise,
-        napping: dbJournal.dataValues.Moods[0].minutesNapping,
-        caffeine: dbJournal.dataValues.Moods[0].servingsCaffeine,
-        alcohol: dbJournal.dataValues.Moods[0].servingsAlcohol,
-        tv: dbJournal.dataValues.Moods[0].hoursTV,
-        shower: dbJournal.dataValues.Moods[0].showered,
-        brushed: dbJournal.dataValues.Moods[0].brushedTeeth,
-        care: dbJournal.dataValues.Moods[0].selfCare,
-        social: dbJournal.dataValues.Moods[0].minutesSocial,
-        ache: dbJournal.dataValues.Moods[0].headache,
-        nauseaa: dbJournal.dataValues.Moods[0].nausea,
-        exhaust: dbJournal.dataValues.Moods[0].exhaustion,
-        sleepless: dbJournal.dataValues.Moods[0].insomnia,
-        hunger: dbJournal.dataValues.Moods[0].appetite,
-        period: dbJournal.dataValues.Moods[0].menstruation,
-        grate1: dbJournal.dataValues.Gratefuls[0].one,
-        grate2: dbJournal.dataValues.Gratefuls[0].two,
-        grate3: dbJournal.dataValues.Gratefuls[0].three,
-        grate4: dbJournal.dataValues.Gratefuls[0].four,
-        grate5: dbJournal.dataValues.Gratefuls[0].five,
-        rem1: dbJournal.dataValues.Remembers[0].one,
-        rem2: dbJournal.dataValues.Remembers[0].two,
-        rem3: dbJournal.dataValues.Remembers[0].three,
-        rem4: dbJournal.dataValues.Remembers[0].four,
-        rem5: dbJournal.dataValues.Remembers[0].five,
-        journalText: dbJournal.dataValues.entry,
-        appetiteText: appetiteArray[dbJournal.dataValues.Moods[0].appetite - 1],
-        appetiteValue: dbJournal.dataValues.Moods[0].appetite,
-        affirmData: data.dataValues.quote,
-      };
-      res.render("historical", handlebarsObject);
-    });
-  });
-});
+// app.get("/api/entry/:id", (req, res) => {
+//   // console.log(req.params.id);
+//   // Find one journal entry that matches the id, based on the UserId
+//   db.Journal.findOne({
+//     where: {
+//       UserId: req.user.id,
+//       id: req.params.id
+//     },
+//     include: [db.Mood, db.Grateful, db.Remember],
+//   }).then(function (dbJournal) {
+//     // console.log(dbJournal);
+//     const rando = (Math.floor(Math.random() * 101) + 1);
+//     db.Affirmation.findOne({
+//       where: {
+//         id: rando
+//       },
+//     }).then(function (data) {
+//       // Renders the data onto the historical page
+//       const appetiteArray = ["Low", "Medium", "High", "Very High"];
+//       const handlebarsObject = {
+//         userName: "Charlie",
+//         medData: (dbJournal.dataValues.Moods[0].medication) ?true : false,
+//         hoursData: dbJournal.dataValues.Moods[0].hoursSleep,
+//         moodData1: (dbJournal.dataValues.Moods[0].mood === 1) ? true : false,
+//         moodData2: (dbJournal.dataValues.Moods[0].mood === 2) ? true : false,
+//         moodData3: (dbJournal.dataValues.Moods[0].mood === 3) ? true : false,
+//         moodData4: (dbJournal.dataValues.Moods[0].mood === 4) ? true : false,
+//         moodData5: (dbJournal.dataValues.Moods[0].mood === 5) ? true : false,
+//         moodData6: (dbJournal.dataValues.Moods[0].mood === 6) ? true : false,
+//         exercise: dbJournal.dataValues.Moods[0].minutesExercise,
+//         napping: dbJournal.dataValues.Moods[0].minutesNapping,
+//         caffeine: dbJournal.dataValues.Moods[0].servingsCaffeine,
+//         alcohol: dbJournal.dataValues.Moods[0].servingsAlcohol,
+//         tv: dbJournal.dataValues.Moods[0].hoursTV,
+//         shower: (dbJournal.dataValues.Moods[0].showered) ? true : false,
+//         brushed: (dbJournal.dataValues.Moods[0].brushedTeeth) ? true : false,
+//         care: (dbJournal.dataValues.Moods[0].selfCare) ? true : false,
+//         social: dbJournal.dataValues.Moods[0].minutesSocial,
+//         ache: (dbJournal.dataValues.Moods[0].headache) ? true : false,
+//         nausea: (dbJournal.dataValues.Moods[0].nausea) ? true : false,
+//         exhaust: (dbJournal.dataValues.Moods[0].exhaustion) ? true : false,
+//         sleepless: (dbJournal.dataValues.Moods[0].insomnia) ? true : false,
+//         hunger: dbJournal.dataValues.Moods[0].appetite,
+//         period: (dbJournal.dataValues.Moods[0].menstruation) ? true : false,
+//         grate1: dbJournal.dataValues.Gratefuls[0].one,
+//         grate2: dbJournal.dataValues.Gratefuls[0].two,
+//         grate3: dbJournal.dataValues.Gratefuls[0].three,
+//         grate4: dbJournal.dataValues.Gratefuls[0].four,
+//         grate5: dbJournal.dataValues.Gratefuls[0].five,
+//         rem1: dbJournal.dataValues.Remembers[0].one,
+//         rem2: dbJournal.dataValues.Remembers[0].two,
+//         rem3: dbJournal.dataValues.Remembers[0].three,
+//         rem4: dbJournal.dataValues.Remembers[0].four,
+//         rem5: dbJournal.dataValues.Remembers[0].five,
+//         journalText: dbJournal.dataValues.entry,
+//         appetiteText: appetiteArray[dbJournal.dataValues.Moods[0].appetite - 1],
+//         appetiteValue: dbJournal.dataValues.Moods[0].appetite,
+//         affirmData: data.dataValues.quote,
+//       };
+//       res.render("historical", handlebarsObject);
+//     });
+//   });
+// });
 
 
 // API call to get the calendar data

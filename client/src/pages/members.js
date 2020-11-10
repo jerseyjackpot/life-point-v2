@@ -32,14 +32,14 @@ function Members() {
         console.log({prev: nappingTime});
         setNappingTime(num);
     }
-    const [caffieneServings, setCaffeineAmt] = useState(0);
-    const setCaffieneState = function(num){
-        console.log({prev: caffieneServings});
+    const [caffeineServings, setCaffeineAmt] = useState(0);
+    const setCaffeineState = function(num){
+        console.log({prev: caffeineServings});
         setCaffeineAmt(num);
     }
     const [alcoholServing, setAlcoholServings] = useState(0);
     const setAlcoholState = function(num){
-        console.log({prev: alcoholServings});
+        console.log({prev: alcoholServing});
         setAlcoholServings(num);
     }
     const [digitalMediaTime, setMediaTime] = useState(0);
@@ -63,14 +63,8 @@ function Members() {
     const gratefulField4 = useRef();
     const gratefulField5 = useRef();
     const journalField = useRef();
+    // const journalEntryDate = useRef();
     const medicationTaken = useRef();
-    const sleepHours = useRef();
-    const exerciseMinutes = useRef();
-    const nappingMinutes = useRef();
-    const caffeineServings = useRef();
-    const alcoholServings = useRef();
-    const digitalMediaHours = useRef();
-    const socialMinutes = useRef();
     const showered = useRef();
     const teethBrush = useRef();
     const selfCare = useRef();
@@ -81,70 +75,88 @@ function Members() {
     const menstruation = useRef();
     const appetite = useRef();
     const handleMoodClick = function (event){
-        console.log(event.target);
-        console.log(event.target.value);
+        // console.log(event.target);
+        // console.log(event.target.value);
         setMood(event.target.value);
     }
     const handleOnClick = function (event){
         console.log({
-            rf1: rememberField1.current.value,
-            rf2: rememberField2.current.value,
-            rf3: rememberField3.current.value,
-            rf4: rememberField4.current.value,
-            rf5: rememberField5.current.value,
-            gf1: gratefulField1.current.value,
-            gf2: gratefulField2.current.value,
-            gf3: gratefulField3.current.value,
-            gf4: gratefulField4.current.value,
-            gf5: gratefulField5.current.value, 
-            medsTaken: medicationTaken.current.value,
-            slh: sleepTime,
-
-        } );
-        API.postEntry({
-           mood: mood, 
-            // medication: req.body.medication,
-            // hoursSleep: req.body.hoursSleep,
-            // minutesExercise: req.body.minutesExercise,
-            // minutesNapping: req.body.minutesNapping,
-            // servingsCaffeine: req.body.servingsCaffeine,
-            // servingsAlcohol: req.body.servingsAlcohol,
-            // hoursTV: req.body.hoursTV,
-            // showered: req.body.showered,
-            // brushedTeeth: req.body.brushedTeeth,
-            // selfCare: req.body.selfCare,
-            // minutesSocial: req.body.minutesSocial,
-            // headache: req.body.headache,
-            // nausea: req.body.nausea,
-            // exhaustion: req.body.exhaustion,
-            // insomnia: req.body.insomnia,
-            // appetite: req.body.appetite,
-            // menstruation: req.body.menstruation,
+            medication: medicationTaken.current.value,
+            hoursSleep: sleepTime,
+            minutesExercise: exerciseTime,
+            minutesNapping: nappingTime,
+            servingsCaffeine: caffeineServings,
+            servingsAlcohol: alcoholServing,
+            hoursTV: digitalMediaTime,
+            showered: showered.current.value,
+            brushedTeeth: teethBrush.current.value,
+            selfCare: selfCare.current.value,
+            minutesSocial: socialTime,
+            headache: headache.current.value,
+            nausea: nausea.current.value,
+            exhaustion: exhaustion.current.value,
+            insomnia: insomnia.current.value,
+            appetite: appetite.current.value,
+            menstruation: menstruation.current.value,
             gratefulEntryOne: gratefulField1.current.value,
             gratefulEntryTwo: gratefulField2.current.value,
             gratefulEntryThree: gratefulField3.current.value,
             gratefulEntryFour: gratefulField4.current.value,
             gratefulEntryFive: gratefulField5.current.value,
-            // journalEntry: journalField.current.value,
-            journalEntryDate: req.body.journalEntryDate,
+            journalEntry: journalField.current.value,
+            // journalEntryDate: journalEntryDate.current.value,
             rememberEntryOne: rememberField1.current.value,
             rememberEntryTwo: rememberField2.current.value,
             rememberEntryThree: rememberField3.current.value,
             rememberEntryFour: rememberField4.current.value,
             rememberEntryFive: rememberField5.current.value
 
-        }).then(data => {
-            console.log(data);
-        }
+        } );
+        API.postEntry({
+            mood: mood, 
+            medication: medicationTaken,
+            hoursSleep: sleepTime,
+            minutesExercise: exerciseTime,
+            minutesNapping: nappingTime,
+            servingsCaffeine: caffeineServings,
+            servingsAlcohol: alcoholServing,
+            hoursTV: digitalMediaTime,
+            minutesSocial: socialTime,
+            gratefulEntryOne: gratefulField1.current.value,
+            gratefulEntryTwo: gratefulField2.current.value,
+            gratefulEntryThree: gratefulField3.current.value,
+            gratefulEntryFour: gratefulField4.current.value,
+            gratefulEntryFive: gratefulField5.current.value,
+            rememberEntryOne: rememberField1.current.value,
+            rememberEntryTwo: rememberField2.current.value,
+            rememberEntryThree: rememberField3.current.value,
+            rememberEntryFour: rememberField4.current.value,
+            rememberEntryFive: rememberField5.current.value,
+            showered: showered,
+            brushedTeeth: teethBrush,
+            selfCare: selfCare,
+            headache: headache,
+            nausea: nausea,
+            exhaustion: exhaustion,
+            insomnia: insomnia,
+            appetite: appetite,
+            menstruation: menstruation,
+            journalEntry: journalField.current.value
+            // journalEntryDate: journalEntryDate.current.value
             
-        )
+
+        }).then(result => {
+            console.log(result);
+            console.log ("it worked!!!!");
+        }).catch(err =>{
+            console.log(err);
+        })
         
-    }
+    };
     return (
         <>
             <Nav/>
             <Affirmation/>
-            
             <Moods
             handleMoodClick={handleMoodClick}/>
             <Remembers 
@@ -160,28 +172,16 @@ function Members() {
             gratefulField4={gratefulField4} 
             gratefulField5={gratefulField5}/>
             <Habitailment
-            medicationTaken = {medicationTaken}
-            sleepHours = {sleepHours}
-            sleepTimeState = {sleepTime}
             setSleepTimeState = {setSleepTimeState}
-            exerciseMinutes = {exerciseMinutes}
-            exerciseTimeState = {exerciseTime}
             setExerciseTimeState = {setExerciseTimeState}
-            nappingMinutes = {nappingMinutes}
-            nappingTimeState = {nappingTime}
             setNappingTimeState = {setNappingTimeState}
-            caffeineServings = {caffeineServings}
-            caffieneState = {caffieneServings}
-            setCaffieneState = {setCaffieneState}
-            alcoholServing = {alcoholServing}
-            alcoholState = {alcoholServings}
+            caffeineServings = {setCaffeineAmt}
+            setCaffeineState = {setCaffeineState}
+            alcoholState = {setAlcoholServings}
             setAlcoholState = {setAlcoholState}
-            digitalMediaHours = {digitalMediaHours}
-            digitalState = {digitalMediaTime}
             setMediaState = {setMediaState}
-            socialMinutes = {socialMinutes}
-            socialState = {socialTime}
             setSocialTimeState = {setSocialTimeState}
+            medicationTaken = {medicationTaken}
             showered = {showered}
             teethBrush = {teethBrush}
             selfCare = {selfCare}
@@ -195,9 +195,8 @@ function Members() {
             journalField = {journalField}/>
             <CameraRecorder />
             <Row className="w-100 justify-content-center">
-    <Button as="input" type="submit lg" value="Submit" id="submitt" onClick={handleOnClick}/>
-    </Row>
-            
+    <Button as="input" type="submit lg" value="Submit" id="submit" onClick={handleOnClick}/>
+    </Row>  
         </>
        
     )

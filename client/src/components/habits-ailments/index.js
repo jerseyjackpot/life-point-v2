@@ -40,7 +40,7 @@ function Habitailment(props) {
         return props.setExerciseTimeState(num);
       case "setNapTime":
         return props.setNappingTimeState(num);
-      case "setCaffeineAmt":
+      case "caffeineCount":
         return props.setCaffeineState(num);
       case "setAlcoholAmt":
         return props.setAlcoholState(num);
@@ -76,7 +76,7 @@ function Habitailment(props) {
               <label for="sleepTime" className="col-sm col-form-label">Hours of Sleep?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setSleepTime" value={props.sleepTimeState} onChange={handleNumericInput} ref={props.sleepHours} className="form-control" id="sleepTime" />
+              <NumericInput data-name="setSleepTime" min={0} value={props.sleepTimeState} onChange={handleNumericInput} className="form-control" id="sleepTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -84,7 +84,7 @@ function Habitailment(props) {
               <label for="exerciseTime" className="col-sm col-form-label">Minutes of Exercise?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setExerciseTime" ref={props.exerciseMinutes} onChange={handleNumericInput} ref={props.exerciseTime} className="form-control" id="exerciseTime" />
+              <NumericInput data-name="setExerciseTime" min={0} onChange={handleNumericInput} className="form-control" id="exerciseTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -92,7 +92,7 @@ function Habitailment(props) {
               <label for="napTime" className="col-sm col-form-label">Minutes Napping?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setNapTime" ref={props.nappingMinutes} onChange={handleNumericInput} ref={props.nappingTime} className="form-control" id="napTime" />
+              <NumericInput data-name="setNapTime" min={0} onChange={handleNumericInput} className="form-control" id="napTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -100,7 +100,7 @@ function Habitailment(props) {
               <label for="caffeineCount" className="col-sm col-form-label">Servings of Caffeine?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setCaffeineAmt" ref={props.caffeineServings} onChange={handleNumericInput} className="form-control" id="caffeineCount" />
+              <NumericInput data-name="setCaffeineAmt" min={0} onChange={handleNumericInput} className="form-control" id="caffeineCount" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -108,7 +108,7 @@ function Habitailment(props) {
               <label for="alcoholCount" className="col-sm col-form-label">Servings of Alcohol?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setAlcoholAmt" ref={props.alcoholServings} onChange={handleNumericInput} className="form-control" id="alcoholCount" />
+              <NumericInput data-name="setAlcoholAmt" min={0} onChange={handleNumericInput} className="form-control" id="alcoholCount" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -116,7 +116,7 @@ function Habitailment(props) {
               <label for="mediaTime" className="col-sm col-form-label">Hours of Digital Media?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setMediaTime" ref={props.digitalMediaHours} onChange={handleNumericInput} className="form-control" id="mediaTime" />
+              <NumericInput data-name="setMediaTime" min={0} onChange={handleNumericInput} className="form-control" id="mediaTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -124,14 +124,14 @@ function Habitailment(props) {
               <label for="socialTime" className="col-sm col-form-label">Minutes Socializing?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setSocialMinutes" ref={props.socialMinutes} onChange={handleNumericInput} className="form-control" id="socialTime" />
+              <NumericInput data-name="setSocialMinutes" min={0} onChange={handleNumericInput} className="form-control" id="socialTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
             <Col xs={4}>Showered?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.showered} type="checkbox" value={showeredToday} />
+                <Form.Check ref={props.showered} type="checkbox" value={showeredToday} onClick={handClick}  />
               </Form.Group>
 
             </Col>
@@ -140,7 +140,7 @@ function Habitailment(props) {
             <Col xs={4}>Brush teeth?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.teethBrush} type="checkbox" value={brushedToday} />
+                <Form.Check ref={props.teethBrush} type="checkbox" value={brushedToday} onClick={handClick} />
               </Form.Group>
             </Col>
           </Row>
@@ -148,7 +148,7 @@ function Habitailment(props) {
             <Col xs={4}>Self Care?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.selfCare} type="checkbox" value={selfCares} />
+                <Form.Check ref={props.selfCare} type="checkbox" value={selfCares} onClick={handClick} />
               </Form.Group>
             </Col>
 
@@ -161,7 +161,7 @@ function Habitailment(props) {
           <Col xs={4}>Headache?</Col>
           <Col xs={4}>
             <Form.Group>
-              <Form.Check ref={props.headache} type="checkbox" />
+              <Form.Check ref={props.headache} type="checkbox" value={headAches} onClick={handClick} />
             </Form.Group>
           </Col>
 
@@ -170,7 +170,7 @@ function Habitailment(props) {
           <Col xs={4}>Nausea?</Col>
           <Col xs={4}>
             <Form.Group>
-              <Form.Check ref={props.nausea} type="checkbox" />
+              <Form.Check ref={props.nausea} type="checkbox" value={nauseas} onClick={handClick} />
             </Form.Group>
           </Col>
 
@@ -180,7 +180,7 @@ function Habitailment(props) {
           <Col xs={4}>
 
             <Form.Group>
-              <Form.Check ref={props.exhaustion} type="checkbox" />
+              <Form.Check ref={props.exhaustion} type="checkbox" value={exhaustions} onClick={handClick} />
             </Form.Group>
           </Col>
 
@@ -190,7 +190,7 @@ function Habitailment(props) {
           <Col xs={4}>
 
             <Form.Group>
-              <Form.Check ref={props.insomnia} type="checkbox" />
+              <Form.Check ref={props.insomnia} type="checkbox" value={insomnias} onClick={handClick} />
             </Form.Group>
           </Col>
 
@@ -200,7 +200,7 @@ function Habitailment(props) {
           <Col xs={4}>
 
             <Form.Group>
-              <Form.Check ref={props.menstruation} type="checkbox" />
+              <Form.Check ref={props.menstruation} type="checkbox" value={menstruations} onClick={handClick} />
             </Form.Group>
           </Col>
 

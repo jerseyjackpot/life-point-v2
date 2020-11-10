@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-// import bound from "./bound.jpg";
 import textured from "./textured.jpg";
 import '../../pages/style.css';
 
