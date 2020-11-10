@@ -19,6 +19,36 @@ function Members() {
         console.log({prev: sleepTime});
         setSleepTime(num);
     }
+    const [exerciseTime, setExerciseTime] = useState(0);
+    const setExerciseTimeState = function(num){
+        console.log({prev: exerciseTime});
+        setExerciseTime(num);
+    }
+    const [nappingTime, setNappingTime] = useState(0);
+    const setNappingTimeState = function(num){
+        console.log({prev: nappingTime});
+        setNappingTime(num);
+    }
+    const [caffieneServings, setCaffeineAmt] = useState(0);
+    const setCaffieneState = function(num){
+        console.log({prev: caffieneServings});
+        setCaffeineAmt(num);
+    }
+    const [alcoholServing, setAlcoholServings] = useState(0);
+    const setAlcoholState = function(num){
+        console.log({prev: alcoholServings});
+        setAlcoholServings(num);
+    }
+    const [digitalMediaTime, setMediaTime] = useState(0);
+    const setMediaState = function(num){
+        console.log({prev: digitalMediaTime});
+        setMediaTime(num);
+    }
+    const [socialTime, setSocialTime] = useState(0);
+    const setSocialTimeState = function(num){
+        console.log({prev: socialTime});
+        setSocialTime(num);
+    }
     const rememberField1 = useRef();
     const rememberField2 = useRef();
     const rememberField3 = useRef();
@@ -100,11 +130,23 @@ function Members() {
             sleepTimeState = {sleepTime}
             setSleepTimeState = {setSleepTimeState}
             exerciseMinutes = {exerciseMinutes}
+            exerciseTimeState = {exerciseTime}
+            setExerciseTimeState = {setExerciseTimeState}
             nappingMinutes = {nappingMinutes}
+            nappingTimeState = {nappingTime}
+            setNappingTimeState = {setNappingTimeState}
             caffeineServings = {caffeineServings}
-            alcoholServings = {alcoholServings}
+            caffieneState = {caffieneServings}
+            setCaffieneState = {setCaffieneState}
+            alcoholServing = {alcoholServing}
+            alcoholState = {alcoholServings}
+            setAlcoholState = {setAlcoholState}
             digitalMediaHours = {digitalMediaHours}
+            digitalState = {digitalMediaTime}
+            setMediaState = {setMediaState}
             socialMinutes = {socialMinutes}
+            socialState = {socialTime}
+            setSocialTimeState = {setSocialTimeState}
             showered = {showered}
             teethBrush = {teethBrush}
             selfCare = {selfCare}
