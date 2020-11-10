@@ -6,7 +6,7 @@ const SALT_WORK_FACTOR = 8;
 const userSchema = new Schema({
   email: { type: String, required: true, unique : true },
   password: { type: String, required: true },
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
 });
 
 userSchema.pre('save', function(next) {

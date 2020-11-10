@@ -16,6 +16,10 @@ export default {
         return Axios.get("/api/affirmation");
         
     },
+    postEntry: function (userData){
+        
+        return Axios.post("api/entry", userData);
+    }
     
 
 }
