@@ -150,6 +150,9 @@
   }
 
   .col-2 {
-    padding-left: 30px;
-    padding-right: 30px;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 5px;
+    margin-left: 15px;
+    margin-right: 5px;
   }
