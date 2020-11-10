@@ -76,7 +76,7 @@ function Habitailment(props) {
               <label for="sleepTime" className="col-sm col-form-label">Hours of Sleep?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setSleepTime" min={0} value={props.sleepTimeState} onChange={handleNumericInput} className="form-control" id="sleepTime" />
+              <NumericInput data-name="setSleepTime" min={0} onChange={handleNumericInput} className="form-control" id="sleepTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
