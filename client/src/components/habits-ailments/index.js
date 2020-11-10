@@ -146,8 +146,8 @@ const handleNumericInput = (num, numStr, target)=> {
         <Row className="justify-content-center">
           <Col xs={4}>Headache?</Col>
           <Col xs={4}>
-            <Form.Group controlId="headAche">
-              <Form.Check ref={props.headache} type="checkbox" value={headAches}/>
+            <Form.Group>
+              <Form.Check ref={props.headache} type="checkbox" />
             </Form.Group>
           </Col>
 
@@ -155,8 +155,8 @@ const handleNumericInput = (num, numStr, target)=> {
         <Row className="justify-content-center">
           <Col xs={4}>Nausea?</Col>
           <Col xs={4}>
-            <Form.Group controlId="nausea">
-              <Form.Check ref={props.nausea} type="checkbox" value={nauseas} />
+            <Form.Group>
+              <Form.Check ref={props.nausea} type="checkbox" />
             </Form.Group>
           </Col>
 
@@ -165,8 +165,8 @@ const handleNumericInput = (num, numStr, target)=> {
           <Col xs={4}>Exhaustion?</Col>
           <Col xs={4}>
 
-            <Form.Group controlId="exhaustion">
-              <Form.Check ref={props.exhaustion} type="checkbox" value={exhaustions} />
+            <Form.Group>
+              <Form.Check ref={props.exhaustion} type="checkbox" />
             </Form.Group>
           </Col>
 
@@ -175,8 +175,8 @@ const handleNumericInput = (num, numStr, target)=> {
           <Col xs={4}>Insomnia?</Col>
           <Col xs={4}>
 
-            <Form.Group controlId="insomnia">
-              <Form.Check ref={props.insomnia} type="checkbox" value={insomnias} />
+            <Form.Group>
+              <Form.Check ref={props.insomnia} type="checkbox" />
             </Form.Group>
           </Col>
 
@@ -185,15 +185,15 @@ const handleNumericInput = (num, numStr, target)=> {
           <Col xs={4}>Menstruation?</Col>
           <Col xs={4}>
 
-            <Form.Group controlId="menstruation">
-              <Form.Check ref={props.menstruation} type="checkbox" value={menstruations} />
+            <Form.Group>
+              <Form.Check ref={props.menstruation} type="checkbox" />
             </Form.Group>
           </Col>
 
         </Row>
         <Row className="justify-content-center">
         <Col xs={8}>
-            <Form.Group controlId="exampleForm.ControlSelect2">
+            <Form.Group>
               <Form.Label>Appetite?</Form.Label>
               <Form.Control ref={props.appetite} as="select">
                 <option data-appetite-value="0">Select One</option>

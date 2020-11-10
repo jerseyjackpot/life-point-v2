@@ -111,7 +111,7 @@ function Members() {
             mood3 = {mood3}
             mood4 = {mood4}
             mood5 = {mood5}
-            mood5 = {mood6}/>
+            mood6 = {mood6}/>
             <Remembers 
             rememberField1={rememberField1}
             rememberField2={rememberField2} 

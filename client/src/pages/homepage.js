@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 
 
 function Homepage() {
-    const { email, setEmail, loggedin, setLoggedin } = useContext(UserContext);
+    const { email, loggedin} = useContext(UserContext);
     const History = useHistory();
     
     // if not logged in, it redirects to login page

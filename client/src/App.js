@@ -7,7 +7,6 @@ import Members from './pages/members.js';
 import Calendar from './components/calendar.js';
 import Resources from './pages/resources.js';
 import Login from './pages/login.js';
-import CameraRecorder from './components/video/Record';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserContext from "./UserContext";
