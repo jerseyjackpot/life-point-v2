@@ -8,7 +8,7 @@ const EntrySchema = new Schema({
         hoursSleep: { type: Number },
         minutesExercise: { type: Number },
         minutesNapping: { type: Number },
-        servingsCaffiene: { type: Number },
+        servingsCaffeine: { type: Number },
         servingsAlcohol: { type: Number},
         hoursTV: { type: Number },
         showered: { type: Boolean },
