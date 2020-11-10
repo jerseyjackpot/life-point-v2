@@ -160,7 +160,7 @@ function Members() {
             journalField = {journalField}/>
             <CameraRecorder />
             <Row className="w-100 justify-content-center">
-    <Button as="input" type="submit lg" value="Submit" onClick={handleOnClick}/>{' '}
+    <Button as="input" type="submit lg" value="Submit" id="submitt" onClick={handleOnClick}/>{' '}
     </Row>
             
         </>

@@ -34,7 +34,7 @@ h1 {
 
 /* Buttons */
 #button-a {
-    background-color: #49B1A7;
+    background-color: rgb(102, 154, 203);
     color: black;
     font-family: 'Neucha', cursive;
     margin-top: 1rem;
@@ -45,7 +45,7 @@ h1 {
 }
 
 #button-b {
-    background-color: #49B1A7;
+    background-color: rgb(102, 154, 203);
     color: black;
     font-family: 'Neucha', cursive;
     margin-top: 1rem;
@@ -55,7 +55,7 @@ h1 {
 }
 
 #button-c {
-    background-color: #49B1A7;
+    background-color: rgb(102, 154, 203);
     color: black;
     margin-top: 1rem;
     font-family: 'Neucha', cursive;
