@@ -9,7 +9,7 @@ import API from '../utils/API';
 
 
     const dayClickHandler = (date, events) => {
-      //API.get("/api/entry/:id")
+      API.get("/api/entry/")
 
       console.log("dayclick", date)
     }

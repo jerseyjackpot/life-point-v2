@@ -10,11 +10,14 @@ import Nav from '../components/navbar';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import CameraRecorder from '../components/video/Record';
+import API from '../utils/API';
+
 
 
 
 function Members() {
     const [sleepTime, setSleepTime] = useState(0);
+    const [mood, setMood] = useState(0);
     const setSleepTimeState = function(num){
         console.log({prev: sleepTime});
         setSleepTime(num);
@@ -60,12 +63,6 @@ function Members() {
     const gratefulField4 = useRef();
     const gratefulField5 = useRef();
     const journalField = useRef();
-    const mood1 = useRef();
-    const mood2 = useRef();
-    const mood3 = useRef();
-    const mood4 = useRef();
-    const mood5 = useRef();
-    const mood6 = useRef();
     const medicationTaken = useRef();
     const sleepHours = useRef();
     const exerciseMinutes = useRef();
@@ -83,7 +80,11 @@ function Members() {
     const insomnia = useRef();
     const menstruation = useRef();
     const appetite = useRef();
-
+    const handleMoodClick = function (event){
+        console.log(event.target);
+        console.log(event.target.value);
+        setMood(event.target.value);
+    }
     const handleOnClick = function (event){
         console.log({
             rf1: rememberField1.current.value,
@@ -97,21 +98,55 @@ function Members() {
             gf4: gratefulField4.current.value,
             gf5: gratefulField5.current.value, 
             medsTaken: medicationTaken.current.value,
-            slh: sleepTime
-        } )
+            slh: sleepTime,
+
+        } );
+        API.postEntry({
+           mood: mood, 
+            // medication: req.body.medication,
+            // hoursSleep: req.body.hoursSleep,
+            // minutesExercise: req.body.minutesExercise,
+            // minutesNapping: req.body.minutesNapping,
+            // servingsCaffeine: req.body.servingsCaffeine,
+            // servingsAlcohol: req.body.servingsAlcohol,
+            // hoursTV: req.body.hoursTV,
+            // showered: req.body.showered,
+            // brushedTeeth: req.body.brushedTeeth,
+            // selfCare: req.body.selfCare,
+            // minutesSocial: req.body.minutesSocial,
+            // headache: req.body.headache,
+            // nausea: req.body.nausea,
+            // exhaustion: req.body.exhaustion,
+            // insomnia: req.body.insomnia,
+            // appetite: req.body.appetite,
+            // menstruation: req.body.menstruation,
+            gratefulEntryOne: gratefulField1.current.value,
+            gratefulEntryTwo: gratefulField2.current.value,
+            gratefulEntryThree: gratefulField3.current.value,
+            gratefulEntryFour: gratefulField4.current.value,
+            gratefulEntryFive: gratefulField5.current.value,
+            // journalEntry: journalField.current.value,
+            journalEntryDate: req.body.journalEntryDate,
+            rememberEntryOne: rememberField1.current.value,
+            rememberEntryTwo: rememberField2.current.value,
+            rememberEntryThree: rememberField3.current.value,
+            rememberEntryFour: rememberField4.current.value,
+            rememberEntryFive: rememberField5.current.value
+
+        }).then(data => {
+            console.log(data);
+        }
+            
+        )
         
     }
     return (
         <>
             <Nav/>
             <Affirmation/>
+            
             <Moods
-            mood1 = {mood1}
-            mood2 = {mood2}
-            mood3 = {mood3}
-            mood4 = {mood4}
-            mood5 = {mood5}
-            mood6 = {mood6}/>
+            handleMoodClick={handleMoodClick}/>
             <Remembers 
             rememberField1={rememberField1}
             rememberField2={rememberField2} 
@@ -160,7 +195,7 @@ function Members() {
             journalField = {journalField}/>
             <CameraRecorder />
             <Row className="w-100 justify-content-center">
-    <Button as="input" type="submit lg" value="Submit" id="submitt" onClick={handleOnClick}/>{' '}
+    <Button as="input" type="submit lg" value="Submit" id="submitt" onClick={handleOnClick}/>
     </Row>
             
         </>

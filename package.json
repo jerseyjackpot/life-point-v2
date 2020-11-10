@@ -39,11 +39,13 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
+    "moment": "^2.29.1",
     "mongoose": "^5.10.12",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react-animate-on-scroll": "^2.1.5",
     "react-icons": "^3.11.0",
+    "react-moment": "^1.0.0",
     "react-numeric-input": "^2.2.3",
     "recordrtc": "^5.6.1",
     "web-vitals": "^0.2.4"

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const moodSchema = new Schema({
-  mood: { type: Number , required: true},
+  mood: { type: Number },
   medication: { type: Boolean },
   hoursSleep: { type: Number },
   minutesExercise: { type: Number },

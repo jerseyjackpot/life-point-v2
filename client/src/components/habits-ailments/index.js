@@ -1,4 +1,4 @@
-import React, { useState, useeffect } from "react";
+import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -40,28 +40,20 @@ function Habitailment(props) {
         return props.setExerciseTimeState(num);
       case "setNapTime":
         return props.setNappingTimeState(num);
-      case "setSleepTime":
-        return props.setSleepTimeState(num);
-      case "setCaffieneAmt":
-        return props.setCaffieneState(num);
+      case "setCaffeineAmt":
+        return props.setCaffeineState(num);
       case "setAlcoholAmt":
         return props.setAlcoholState(num);
       case "setMediaTime":
         return props.setMediaState(num);
       case "setSocialMinutes":
         return props.setSocialTimeState(num);
+      default:
 
     }
     console.log(num);
     console.log(target);
     console.log(target);
-    // props.setSleepTimeState(num);
-    // props.setExerciseTimeState(num);
-    // props.setNappingTimeState(num);
-    // props.setCaffieneState(num);
-    // props.setAlcoholState(num);
-    // props.setMediaState(num);
-    // props.setSocialTimeState(num);
   }
 
   return (
@@ -105,10 +97,10 @@ function Habitailment(props) {
           </Row>
           <Row className="justify-content-center">
             <Col xs={4}>
-              <label for="caffieneCount" className="col-sm col-form-label">Servings of Caffeine?</label>
+              <label for="caffeineCount" className="col-sm col-form-label">Servings of Caffeine?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput data-name="setCaffieneAmt" ref={props.caffeineServings} onChange={handleNumericInput} className="form-control" id="caffieneCount" />
+              <NumericInput data-name="setCaffeineAmt" ref={props.caffeineServings} onChange={handleNumericInput} className="form-control" id="caffeineCount" />
             </Col>
           </Row>
           <Row className="justify-content-center">

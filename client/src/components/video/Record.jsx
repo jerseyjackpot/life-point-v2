@@ -7,7 +7,7 @@ class CameraRecorder extends React.Component {
     super(props);
 
     // Getting Today's Date
-    var today = new Date(),
+    let today = new Date(),
       date =
         today.getFullYear() +
         "-" +
