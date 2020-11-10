@@ -1,4 +1,4 @@
-import React, {useState, useeffect} from "react";
+import React, { useState, useeffect } from "react";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -7,40 +7,62 @@ import Col from 'react-bootstrap/Col';
 
 
 function Habitailment(props) {
-const [medTaken, setMedTaken] = useState(false);
-const [showeredToday, setShowerTaken] = useState(false);
-const [brushedToday, setBrushed] = useState(false);
-const [selfCares, setCares] = useState(false);
-const [headAches, setHeadache] = useState(false);
-const [nauseas, setNauseas] = useState(false);
-const [exhaustions, setExhaustions] = useState(false);
-const [insomnias, setInsomnias] = useState(false);
-const [menstruations, setMenstruations] = useState(false);
+  const [medTaken, setMedTaken] = useState(false);
+  const [showeredToday, setShowerTaken] = useState(false);
+  const [brushedToday, setBrushed] = useState(false);
+  const [selfCares, setCares] = useState(false);
+  const [headAches, setHeadache] = useState(false);
+  const [nauseas, setNauseas] = useState(false);
+  const [exhaustions, setExhaustions] = useState(false);
+  const [insomnias, setInsomnias] = useState(false);
+  const [menstruations, setMenstruations] = useState(false);
 
-const handClick = (event) => {
-  setMedTaken(!medTaken);
-  setShowerTaken(!showeredToday);
-  setBrushed(!brushedToday);
-  setCares(!selfCares);
-  setHeadache(!headAches);
-  setNauseas(!nauseas);
-  setExhaustions(!exhaustions);
-  setInsomnias(!insomnias);
-  setMenstruations(!menstruations);
-}
-// used ...stuff to see whats there
-// then used actual names to get the values
-const handleNumericInput = (num, numStr, target)=> {
-  console.log(num);
-  console.log(target.value);
-  props.setSleepTimeState(num);
-  props.setExerciseTimeState(num);
-  props.setNappingTimeState(num);
-  props.setCaffieneState(num);
-  props.setAlcoholState(num);
-  props.setMediaState(num);
-  props.SetSocialTimeState(num);
-}
+  const handClick = (event) => {
+    setMedTaken(!medTaken);
+    setShowerTaken(!showeredToday);
+    setBrushed(!brushedToday);
+    setCares(!selfCares);
+    setHeadache(!headAches);
+    setNauseas(!nauseas);
+    setExhaustions(!exhaustions);
+    setInsomnias(!insomnias);
+    setMenstruations(!menstruations);
+  }
+  // used ...stuff to see whats there
+  // then used actual names to get the values
+  const handleNumericInput = (num, numStr, target) => {
+    const stateName = target.getAttribute("data-name");
+    console.log(stateName);
+    switch (stateName) {
+      case "setSleepTime":
+        return props.setSleepTimeState(num);
+      case "setExerciseTime":
+        return props.setExerciseTimeState(num);
+      case "setNapTime":
+        return props.setNappingTimeState(num);
+      case "setSleepTime":
+        return props.setSleepTimeState(num);
+      case "setCaffieneAmt":
+        return props.setCaffieneState(num);
+      case "setAlcoholAmt":
+        return props.setAlcoholState(num);
+      case "setMediaTime":
+        return props.setMediaState(num);
+      case "setSocialMinutes":
+        return props.setSocialTimeState(num);
+
+    }
+    console.log(num);
+    console.log(target);
+    console.log(target);
+    // props.setSleepTimeState(num);
+    // props.setExerciseTimeState(num);
+    // props.setNappingTimeState(num);
+    // props.setCaffieneState(num);
+    // props.setAlcoholState(num);
+    // props.setMediaState(num);
+    // props.setSocialTimeState(num);
+  }
 
   return (
     <>
@@ -49,68 +71,68 @@ const handleNumericInput = (num, numStr, target)=> {
           Habits
     </h2>
         <div className="habits">
-        <Row className="justify-content-center">
+          <Row className="justify-content-center">
             <Col xs={4}>Medication Taken?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.medicationTaken} type="checkbox" value={medTaken} onClick={handClick}/>
+                <Form.Check ref={props.medicationTaken} type="checkbox" value={medTaken} onClick={handClick} />
               </Form.Group>
             </Col>
           </Row>
           <Row className="justify-content-center">
-          <Col xs={4}>
-            <label for="sleepTime" className="col-sm col-form-label">Hours of Sleep?</label>
+            <Col xs={4}>
+              <label for="sleepTime" className="col-sm col-form-label">Hours of Sleep?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput value={props.sleepTimeState} onChange={handleNumericInput} ref={props.sleepHours} className="form-control" id="sleepTime" />
-            </Col>
-          </Row>
-          <Row className="justify-content-center">
-          <Col xs={4}>
-            <label for="inputEmail3" className="col-sm col-form-label">Minutes of Exercise?</label>
-            </Col>
-            <Col xs={4}>
-              <NumericInput ref={props.exerciseMinutes} onChange={handleNumericInput} className="form-control" id="exerciseTime" />
+              <NumericInput data-name="setSleepTime" value={props.sleepTimeState} onChange={handleNumericInput} ref={props.sleepHours} className="form-control" id="sleepTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
             <Col xs={4}>
-            <label for="inputEmail3" className="col-sm col-form-label">Minutes Napping?</label>
+              <label for="exerciseTime" className="col-sm col-form-label">Minutes of Exercise?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.nappingMinutes} onChange={handleNumericInput} className="form-control" id="napTime" />
-            </Col>
-          </Row>
-          <Row className="justify-content-center">
-            <Col xs={4}>
-            <label for="inputEmail3" className="col-sm col-form-label">Servings of Caffeine?</label>
-            </Col>
-            <Col xs={4}>
-              <NumericInput ref={props.caffeineServings} onChange={handleNumericInput} className="form-control" id="caffieneCount" />
+              <NumericInput data-name="setExerciseTime" ref={props.exerciseMinutes} onChange={handleNumericInput} ref={props.exerciseTime} className="form-control" id="exerciseTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
             <Col xs={4}>
-            <label for="inputEmail3" className="col-sm col-form-label">Servings of Alcohol?</label>
+              <label for="napTime" className="col-sm col-form-label">Minutes Napping?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.alcoholServings} onChange={handleNumericInput} className="form-control" id="alcoholCount" />
-            </Col>
-          </Row>
-          <Row className="justify-content-center">
-            <Col xs={4}>
-            <label for="inputEmail3" className="col-sm col-form-label">Hours of Digital Media?</label>
-            </Col>
-            <Col xs={4}>
-              <NumericInput ref={props.digitalMediaHours} onChange={handleNumericInput} className="form-control" id="mediaTime" />
+              <NumericInput data-name="setNapTime" ref={props.nappingMinutes} onChange={handleNumericInput} ref={props.nappingTime} className="form-control" id="napTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
             <Col xs={4}>
-            <label for="inputEmail3" className="col-sm col-form-label">Minutes Socializing?</label>
+              <label for="caffieneCount" className="col-sm col-form-label">Servings of Caffeine?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.socialMinutes} onChange={handleNumericInput} className="form-control" id="socialTime" />
+              <NumericInput data-name="setCaffieneAmt" ref={props.caffeineServings} onChange={handleNumericInput} className="form-control" id="caffieneCount" />
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col xs={4}>
+              <label for="alcoholCount" className="col-sm col-form-label">Servings of Alcohol?</label>
+            </Col>
+            <Col xs={4}>
+              <NumericInput data-name="setAlcoholAmt" ref={props.alcoholServings} onChange={handleNumericInput} className="form-control" id="alcoholCount" />
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col xs={4}>
+              <label for="mediaTime" className="col-sm col-form-label">Hours of Digital Media?</label>
+            </Col>
+            <Col xs={4}>
+              <NumericInput data-name="setMediaTime" ref={props.digitalMediaHours} onChange={handleNumericInput} className="form-control" id="mediaTime" />
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col xs={4}>
+              <label for="socialTime" className="col-sm col-form-label">Minutes Socializing?</label>
+            </Col>
+            <Col xs={4}>
+              <NumericInput data-name="setSocialMinutes" ref={props.socialMinutes} onChange={handleNumericInput} className="form-control" id="socialTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -126,7 +148,7 @@ const handleNumericInput = (num, numStr, target)=> {
             <Col xs={4}>Brush teeth?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.teethBrush} type="checkbox" value={brushedToday}/>
+                <Form.Check ref={props.teethBrush} type="checkbox" value={brushedToday} />
               </Form.Group>
             </Col>
           </Row>
@@ -192,7 +214,7 @@ const handleNumericInput = (num, numStr, target)=> {
 
         </Row>
         <Row className="justify-content-center">
-        <Col xs={8}>
+          <Col xs={8}>
             <Form.Group>
               <Form.Label>Appetite?</Form.Label>
               <Form.Control ref={props.appetite} as="select">
