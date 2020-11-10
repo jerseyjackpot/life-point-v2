@@ -8,10 +8,25 @@ import Col from 'react-bootstrap/Col';
 
 function Habitailment(props) {
 const [medTaken, setMedTaken] = useState(false);
-
+const [showeredToday, setShowerTaken] = useState(false);
+const [brushedToday, setBrushed] = useState(false);
+const [selfCares, setCares] = useState(false);
+const [headAches, setHeadache] = useState(false);
+const [nauseas, setNauseas] = useState(false);
+const [exhaustions, setExhaustions] = useState(false);
+const [insomnias, setInsomnias] = useState(false);
+const [menstruations, setMenstruations] = useState(false);
 
 const handClick = (event) => {
   setMedTaken(!medTaken);
+  setShowerTaken(!showeredToday);
+  setBrushed(!brushedToday);
+  setCares(!selfCares);
+  setHeadache(!headAches);
+  setNauseas(!nauseas);
+  setExhaustions(!exhaustions);
+  setInsomnias(!insomnias);
+  setMenstruations(!menstruations);
 }
 // used ...stuff to see whats there
 // then used actual names to get the values
@@ -19,6 +34,12 @@ const handleNumericInput = (num, numStr, target)=> {
   console.log(num);
   console.log(target.value);
   props.setSleepTimeState(num);
+  props.setExerciseTimeState(num);
+  props.setNappingTimeState(num);
+  props.setCaffieneState(num);
+  props.setAlcoholState(num);
+  props.setMediaState(num);
+  props.SetSocialTimeState(num);
 }
 
   return (
@@ -49,7 +70,7 @@ const handleNumericInput = (num, numStr, target)=> {
             <label for="inputEmail3" className="col-sm col-form-label">Minutes of Exercise?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.exerciseMinutes} className="form-control" id="exerciseTime" />
+              <NumericInput ref={props.exerciseMinutes} onChange={handleNumericInput} className="form-control" id="exerciseTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -57,7 +78,7 @@ const handleNumericInput = (num, numStr, target)=> {
             <label for="inputEmail3" className="col-sm col-form-label">Minutes Napping?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.nappingMinutes} className="form-control" id="napTime" />
+              <NumericInput ref={props.nappingMinutes} onChange={handleNumericInput} className="form-control" id="napTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -65,7 +86,7 @@ const handleNumericInput = (num, numStr, target)=> {
             <label for="inputEmail3" className="col-sm col-form-label">Servings of Caffeine?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.caffeineServings} className="form-control" id="caffieneCount" />
+              <NumericInput ref={props.caffeineServings} onChange={handleNumericInput} className="form-control" id="caffieneCount" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -73,7 +94,7 @@ const handleNumericInput = (num, numStr, target)=> {
             <label for="inputEmail3" className="col-sm col-form-label">Servings of Alcohol?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.alcoholServings} className="form-control" id="alcoholCount" />
+              <NumericInput ref={props.alcoholServings} onChange={handleNumericInput} className="form-control" id="alcoholCount" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -81,7 +102,7 @@ const handleNumericInput = (num, numStr, target)=> {
             <label for="inputEmail3" className="col-sm col-form-label">Hours of Digital Media?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.digitalMediaHours} className="form-control" id="mediaTime" />
+              <NumericInput ref={props.digitalMediaHours} onChange={handleNumericInput} className="form-control" id="mediaTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
@@ -89,14 +110,14 @@ const handleNumericInput = (num, numStr, target)=> {
             <label for="inputEmail3" className="col-sm col-form-label">Minutes Socializing?</label>
             </Col>
             <Col xs={4}>
-              <NumericInput ref={props.socialMinutes} className="form-control" id="socialTime" />
+              <NumericInput ref={props.socialMinutes} onChange={handleNumericInput} className="form-control" id="socialTime" />
             </Col>
           </Row>
           <Row className="justify-content-center">
             <Col xs={4}>Showered?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.showered} type="checkbox" />
+                <Form.Check ref={props.showered} type="checkbox" value={showeredToday} />
               </Form.Group>
 
             </Col>
@@ -105,7 +126,7 @@ const handleNumericInput = (num, numStr, target)=> {
             <Col xs={4}>Brush teeth?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.teethBrush} type="checkbox" />
+                <Form.Check ref={props.teethBrush} type="checkbox" value={brushedToday}/>
               </Form.Group>
             </Col>
           </Row>
@@ -113,7 +134,7 @@ const handleNumericInput = (num, numStr, target)=> {
             <Col xs={4}>Self Care?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.selfCare} type="checkbox" />
+                <Form.Check ref={props.selfCare} type="checkbox" value={selfCares} />
               </Form.Group>
             </Col>
 
@@ -125,7 +146,7 @@ const handleNumericInput = (num, numStr, target)=> {
         <Row className="justify-content-center">
           <Col xs={4}>Headache?</Col>
           <Col xs={4}>
-            <Form.Group controlId="headAche">
+            <Form.Group>
               <Form.Check ref={props.headache} type="checkbox" />
             </Form.Group>
           </Col>
@@ -134,7 +155,7 @@ const handleNumericInput = (num, numStr, target)=> {
         <Row className="justify-content-center">
           <Col xs={4}>Nausea?</Col>
           <Col xs={4}>
-            <Form.Group controlId="nausea">
+            <Form.Group>
               <Form.Check ref={props.nausea} type="checkbox" />
             </Form.Group>
           </Col>
@@ -144,7 +165,7 @@ const handleNumericInput = (num, numStr, target)=> {
           <Col xs={4}>Exhaustion?</Col>
           <Col xs={4}>
 
-            <Form.Group controlId="exhaustion">
+            <Form.Group>
               <Form.Check ref={props.exhaustion} type="checkbox" />
             </Form.Group>
           </Col>
@@ -154,7 +175,7 @@ const handleNumericInput = (num, numStr, target)=> {
           <Col xs={4}>Insomnia?</Col>
           <Col xs={4}>
 
-            <Form.Group controlId="insomnia">
+            <Form.Group>
               <Form.Check ref={props.insomnia} type="checkbox" />
             </Form.Group>
           </Col>
@@ -164,7 +185,7 @@ const handleNumericInput = (num, numStr, target)=> {
           <Col xs={4}>Menstruation?</Col>
           <Col xs={4}>
 
-            <Form.Group controlId="menstruation">
+            <Form.Group>
               <Form.Check ref={props.menstruation} type="checkbox" />
             </Form.Group>
           </Col>
@@ -172,7 +193,7 @@ const handleNumericInput = (num, numStr, target)=> {
         </Row>
         <Row className="justify-content-center">
         <Col xs={8}>
-            <Form.Group controlId="exampleForm.ControlSelect2">
+            <Form.Group>
               <Form.Label>Appetite?</Form.Label>
               <Form.Control ref={props.appetite} as="select">
                 <option data-appetite-value="0">Select One</option>

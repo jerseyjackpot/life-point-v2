@@ -15,7 +15,7 @@ return(
     <Row className="justify-content-center">
       <Col xs={8}>
       <h2 for="exampleFormControlTextarea1">Journal Entry</h2>
-            <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Group>
        <Form.Control ref={props.journalField} id="Journalstyle" as="textarea" rows={20} style={{ backgroundImage:`url(${textured})`, backgroundRepeat: 'no-repeat'}}></Form.Control>
   </Form.Group>
   </Col>

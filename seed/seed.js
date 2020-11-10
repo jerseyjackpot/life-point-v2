@@ -1,7 +1,6 @@
 let seedfile = require('../db/affirmSeed.json');
 const db = require("../models");
 const mongoose = require("mongoose");
-const { format } = require('mysql');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/lifepoint', {useNewUrlParser: true});
 seedfile = seedfile.map( doc => {
     delete doc.id
