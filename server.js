@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 // const bodyParser = require("body-parser");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/lifepoint', {useNewUrlParser: true});
+
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === "production") {
 require("./routes/api-routes.js")(app);
 
 // app.use(require('./routes/index.js'));
-
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/lifepoint', {useNewUrlParser: true});
 // Syncing our database and logging a message to the user upon success
   app.listen(PORT, () => {
     console.log(
