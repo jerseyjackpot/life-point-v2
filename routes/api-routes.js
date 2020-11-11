@@ -2,6 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const parseBool = str => str === "true" || str === "1";
+const dateFns =require("date-fns")
 
 module.exports = function (app) {
 
@@ -123,8 +124,26 @@ const date = req.query.date
   // }).then(function (dbJournal) {
   //   res.json(dbJournal);
   // });
-  db.Entry.find( //query today up to tonight
-    {"journalEntryDate": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
+  // db.Entry.find( //query today up to tonight
+  //   {"journalEntryDate": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
+
+
+
+
+    db.Entry.find( //query today up to tonight
+
+  {userId:req.user._id,
+    
+    journalEntryDate: {
+      $gte: dateFns.startOfDay(new Date(date)),
+      $lte: dateFns.endOfDay(new Date(date))
+    }
+  }
+      
+      ).then(function(results){
+        console.log("results",results)
+        res.json(results)
+      })
 });
 
 
