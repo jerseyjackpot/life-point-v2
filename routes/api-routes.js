@@ -2,6 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const parseBool = str => str === "true" || str === "1";
+const dateFns =require("date-fns")
 
 module.exports = function (app) {
 
@@ -74,7 +75,9 @@ module.exports = function (app) {
       req.body.rememberEntryTwo,
       req.body.rememberEntryThree,
       req.body.rememberEntryFour,
-      req.body.rememberEntryFive]
+      req.body.rememberEntryFive],
+      userId:req.user._id
+
 
     }).then(data => {
       console.log(data);
@@ -106,12 +109,12 @@ app.get("/api/calendar", function (req, res) {
 
 app.get("/api/entry", function (req, res) {
   // Gets the data for each mood based on the journal and UserId they are tied to
-
+const date = req.query.date
   //use req.body to find the date that we passed in
   // then use moment.js to break out the day month year into variables
   // pass those into the new Dates on 124 and new Year + 1 
-  
-  console.log(req.body)
+  console.log("api routes")
+  console.log(date)
   // db.Entry.findAll({
   //   include: [
   //     {
@@ -121,8 +124,26 @@ app.get("/api/entry", function (req, res) {
   // }).then(function (dbJournal) {
   //   res.json(dbJournal);
   // });
-  db.Entry.find( //query today up to tonight
-    {"journalEntryDate": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
+  // db.Entry.find( //query today up to tonight
+  //   {"journalEntryDate": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
+
+
+
+
+    db.Entry.find( //query today up to tonight
+
+  {userId:req.user._id,
+    
+    journalEntryDate: {
+      $gte: dateFns.startOfDay(new Date(date)),
+      $lte: dateFns.endOfDay(new Date(date))
+    }
+  }
+      
+      ).then(function(results){
+        console.log("results",results)
+        res.json(results)
+      })
 });
 
 

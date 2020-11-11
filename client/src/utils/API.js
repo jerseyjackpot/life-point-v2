@@ -21,8 +21,8 @@ export default {
         return Axios.post("/api/entry", userData);
     },
     getDate: function (date){
-        console.log(date.date);
-        return Axios.get("/api/entry", date.date)
+        console.log("from api.js", date.date);
+        return Axios.get("/api/entry", {params:{date:date.date}})
     }
     
 

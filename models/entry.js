@@ -41,8 +41,8 @@ const EntrySchema = new Schema({
         },
 
         journalEntry: { type: String },
-        journalEntryDate: { type: String, default: Date.now }, 
-  
+        journalEntryDate: { type: Date, default: Date.now }, 
+        userId: {type: Schema.Types.ObjectId},
 
 
         remember: [
