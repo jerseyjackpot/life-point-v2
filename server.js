@@ -39,6 +39,8 @@ if (process.env.NODE_ENV === "production") {
   }
 require("./routes/api-routes.js")(app);
 
+app.use(require('./routes/index.js'));
+
 // Syncing our database and logging a message to the user upon success
   app.listen(PORT, () => {
     console.log(

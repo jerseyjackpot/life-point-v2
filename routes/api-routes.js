@@ -2,7 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const parseBool = str => str === "true" || str === "1";
-const dateFns =require("date-fns")
+const dateFns =require("date-fns");
 
 module.exports = function (app) {
 
