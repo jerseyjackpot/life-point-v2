@@ -74,7 +74,9 @@ module.exports = function (app) {
       req.body.rememberEntryTwo,
       req.body.rememberEntryThree,
       req.body.rememberEntryFour,
-      req.body.rememberEntryFive]
+      req.body.rememberEntryFive],
+      userId:req.user._id
+
 
     }).then(data => {
       console.log(data);
@@ -106,12 +108,12 @@ app.get("/api/calendar", function (req, res) {
 
 app.get("/api/entry", function (req, res) {
   // Gets the data for each mood based on the journal and UserId they are tied to
-
+const date = req.query.date
   //use req.body to find the date that we passed in
   // then use moment.js to break out the day month year into variables
   // pass those into the new Dates on 124 and new Year + 1 
-  
-  console.log(req.body)
+  console.log("api routes")
+  console.log(date)
   // db.Entry.findAll({
   //   include: [
   //     {
