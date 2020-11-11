@@ -1,4 +1,4 @@
-import React, {  useEffect } from 'react';
+import React from 'react';
 import Calendar from 'rc-year-calendar';
 import "../pages/style.css";
 import Nav from '../components/navbar';
