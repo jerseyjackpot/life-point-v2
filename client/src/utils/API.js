@@ -17,8 +17,12 @@ export default {
         
     },
     postEntry: function (userData){
-        
-        return Axios.post("api/entry", userData);
+        console.log("line20");
+        return Axios.post("/api/entry", userData);
+    },
+    getDate: function (date){
+        console.log(date.date);
+        return Axios.get("/api/entry", date.date)
     }
     
 

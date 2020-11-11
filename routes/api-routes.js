@@ -104,6 +104,27 @@ app.get("/api/calendar", function (req, res) {
   });
 });
 
+app.get("/api/entry", function (req, res) {
+  // Gets the data for each mood based on the journal and UserId they are tied to
+
+  //use req.body to find the date that we passed in
+  // then use moment.js to break out the day month year into variables
+  // pass those into the new Dates on 124 and new Year + 1 
+  
+  console.log(req.body)
+  // db.Entry.findAll({
+  //   include: [
+  //     {
+  //       model: db.Journal,
+  //       where: { UserId: req.user.id }
+  //     }]
+  // }).then(function (dbJournal) {
+  //   res.json(dbJournal);
+  // });
+  db.Entry.find( //query today up to tonight
+    {"journalEntryDate": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
+});
+
 
 // Route for logging user out
 app.get("/logout", (req, res) => {
