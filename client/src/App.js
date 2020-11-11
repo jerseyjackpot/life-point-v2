@@ -10,12 +10,14 @@ import Login from './pages/login.js';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserContext from "./UserContext";
+import SessionUser from "./utils/SessionUser";
 
 
 
 function App(){
   const [email, setEmail] = useState("");
   const [loggedin, setLoggedin] = useState(false);
+  SessionUser(setEmail, setLoggedin);
   return (
 
     <Router>

@@ -2,7 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const parseBool = str => str === "true" || str === "1";
-const dateFns =require("date-fns");
+const dateFns = require("date-fns");
 
 module.exports = function (app) {
 
@@ -76,13 +76,43 @@ module.exports = function (app) {
       req.body.rememberEntryThree,
       req.body.rememberEntryFour,
       req.body.rememberEntryFive],
-      userId:req.user._id
+      userId: id
 
 
     }).then(data => {
       console.log(data);
       // const EntryId = data._id;
-      res.json({ data });
+      // res.json({ data });
+      res.json({
+        userId: data.userId,
+        remember: data.remember,
+        mood: data.mood,
+        medication: data.medication,
+        hoursSleep: data.hoursSleep,
+        minutesExercise: data.minutesExercise,
+        minutesNapping: data.minutesNapping,
+        minutesSocial: data.minutesSocial,
+        servingsAlcohol: data.servingsAlcohol,
+        servingsCaffeine: data.servingsCaffeine,
+        hoursTV: data.hoursTV,
+        showered: data.showered,
+        brushedTeeth: data.brushedTeeth,
+        selfCare: data.selfCare,
+        headache: data.headache,
+        nausea: data.nausea,
+        exhaustion: data.exhaustion,
+        insomnia: data.insomnia,
+        appetite: data.appetite,
+        menstruation: data.menstruation,
+        gratefulEntryOne: data.gratefulEntryOne,
+        gratefulEntryTwo: data.gratefulEntryTwo,
+        gratefulEntryThree: data.gratefulEntryThree,
+        gratefulEntryFour: data.gratefulEntryFour,
+        gratefulEntryFive: data.gratefulEntryFive,
+        journalEntry: data.journalEntry,
+        journalEntryDate: data.journalEntryDate
+      });
+
     })
       .catch(err => {
         console.log("something went wrong")
@@ -91,92 +121,125 @@ module.exports = function (app) {
 
 
 
-});
-
-// API call to get the calendar data
-app.get("/api/calendar", function (req, res) {
-  // Gets the data for each mood based on the journal and UserId they are tied to
-  db.Mood.findAll({
-    include: [
-      {
-        model: db.Journal,
-        where: { UserId: req.user.id }
-      }]
-  }).then(function (dbJournal) {
-    res.json(dbJournal);
   });
-});
 
-app.get("/api/entry", function (req, res) {
-  // Gets the data for each mood based on the journal and UserId they are tied to
-const date = req.query.date
-  //use req.body to find the date that we passed in
-  // then use moment.js to break out the day month year into variables
-  // pass those into the new Dates on 124 and new Year + 1 
-  console.log("api routes")
-  console.log(date)
-  // db.Entry.findAll({
-  //   include: [
-  //     {
-  //       model: db.Journal,
-  //       where: { UserId: req.user.id }
-  //     }]
-  // }).then(function (dbJournal) {
-  //   res.json(dbJournal);
-  // });
-  // db.Entry.find( //query today up to tonight
-  //   {"journalEntryDate": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
+  // API call to get the calendar data
+  app.get("/api/calendar", function (req, res) {
+    // Gets the data for each mood based on the journal and UserId they are tied to
+    db.Mood.findAll({
+      include: [
+        {
+          model: db.Journal,
+          where: { UserId: req.user.id }
+        }]
+    }).then(function (dbJournal) {
+      res.json(dbJournal);
+    });
+  });
+
+  /*app.get("/api/entry", function (req, res) {
+    // Gets the data for each mood based on the journal and UserId they are tied to
+    const date = req.query.date
+    //use req.body to find the date that we passed in
+    // then use moment.js to break out the day month year into variables
+    // pass those into the new Dates on 124 and new Year + 1 
+    console.log("api routes")
+    console.log(date)
+    // db.Entry.findAll({
+    //   include: [
+    //     {
+    //       model: db.Journal,
+    //       where: { UserId: req.user.id }
+    //     }]
+    // }).then(function (dbJournal) {
+    //   res.json(dbJournal);
+    // });
+    // db.Entry.find( //query today up to tonight
+    //   {"journalEntryDate": {"$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15)}})
 
 
 
 
     db.Entry.find( //query today up to tonight
 
-  {userId:req.user._id,
-    
-    journalEntryDate: {
-      $gte: dateFns.startOfDay(new Date(date)),
-      $lte: dateFns.endOfDay(new Date(date))
-    }
-  }
-      
-      ).then(function(results){
-        console.log("results",results)
-        res.json(results)
-      })
-});
+      {
+        userId: req.user._id,
+
+        journalEntryDate: {
+          $gte: dateFns.startOfDay(new Date(date)),
+          $lte: dateFns.endOfDay(new Date(date))
+        }
+      }
 
 
-// Route for logging user out
-app.get("/logout", (req, res) => {
-  req.logout();
-  res.json(true);
-});
 
-// Route for getting some data about our user to be used client side
-app.get("/api/user_data", (req, res) => {
-  if (!req.user) {
-    // The user is not logged in, send back an empty object
-    res.json({});
-  } else {
-    // Otherwise send back the user's email and id
-    // Sending back a password, even a hashed password, isn't a good idea
-    console.log(req.user.email);
-    console.log(req.user._id);
-    res.json({
-      email: req.user.email,
-      _id: req.user._id
-    });
-  }
-});
-app.get("/api/affirmation", function (req, res) {
-  db.Affirmation.count().exec(function (err, count) {
-    let random = Math.floor(Math.random() * count);
-
-    db.Affirmation.findOne({}).skip(random).then(function (postAffirm) {
-      res.json(postAffirm)
+    ).then(function (results) {
+      console.log("results", results)
+      res.json(results)
     })
-  })
+  });*/
+  app.get("/api/entry/:dateUnix", (req, res) => {
+    let startDate = new Date(parseInt(req.params.dateUnix));
+    console.log(startDate);
+    let endDate = new Date(parseInt(req.params.dateUnix) + (1000 * 60 * 60 * 24));
+    console.log(endDate);
+    db.Entry.find( //query today up to tonight
 
-})
+      {
+        userId: req.user._id,
+
+        journalEntryDate: {
+          $gte: startDate.toISOString().substr(0,10),
+          $lte: endDate.toISOString().substr(0,10)
+
+        }
+      }
+
+
+
+    ).then(function (results) {
+      console.log("results", results)
+      res.json(results)
+    })
+    .catch(function (err){
+      console.log(err)
+      res.json(err);
+    })
+
+
+  });
+
+
+  // Route for logging user out
+  app.get("/logout", (req, res) => {
+    req.logout();
+    res.json(true);
+  });
+
+  // Route for getting some data about our user to be used client side
+  app.get("/api/user_data", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      console.log(req.user.email);
+      console.log(req.user._id);
+      res.json({
+        email: req.user.email,
+        _id: req.user._id
+      });
+    }
+  });
+  app.get("/api/affirmation", function (req, res) {
+    db.Affirmation.count().exec(function (err, count) {
+      let random = Math.floor(Math.random() * count);
+
+      db.Affirmation.findOne({}).skip(random).then(function (postAffirm) {
+        res.json(postAffirm)
+      })
+    })
+
+  })
 };

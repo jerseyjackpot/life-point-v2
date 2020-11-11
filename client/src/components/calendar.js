@@ -8,10 +8,10 @@ import API from '../utils/API';
   function CalendarLP() {
 
 
-    const dayClickHandler = (date, events) => {
-      console.log("dayclick", date)
-      API.getDate(date).then(() =>{console.log("did this work?")})
-      API.getEntry(date);
+    const dayClickHandler = (dayclickEvent, events) => {
+      console.log("dayclick", dayclickEvent.date);
+      // API.getDate(date).then(() =>{console.log("did this work?")})
+      API.getEntry(dayclickEvent.date);
     }
 
     return (
