@@ -1,6 +1,6 @@
 import React from "react";
-import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
+import { Row, Col } from 'react-bootstrap';
+
 
 
 function Moods(props) {

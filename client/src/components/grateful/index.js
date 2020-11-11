@@ -1,8 +1,6 @@
 import React from "react";
-import Row from 'react-bootstrap/Row';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
-import Col from 'react-bootstrap/Col';
+import { Row, InputGroup, FormControl, Col } from 'react-bootstrap';
+
 
 function Grateful(props) {
   return (

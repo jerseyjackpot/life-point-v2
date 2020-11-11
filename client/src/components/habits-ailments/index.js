@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
+import { Form, Row, Container, Col } from 'react-bootstrap';
 import NumericInput from 'react-numeric-input';
-import Col from 'react-bootstrap/Col';
+
 
 
 function Habitailment(props) {
