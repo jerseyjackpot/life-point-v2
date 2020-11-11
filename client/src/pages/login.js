@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import UserContext from "../UserContext";
 import API from "../utils/API";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { fadeInDown } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 
@@ -52,7 +52,7 @@ function Login(props) {
                             <button type="submit" className="btn btn-default" onClick={event => handleSubmit(event)}>Log In</button>
                         </div>
                         <br />
-                        <p id="logintext">Or sign up <a href="/signup">here</a></p>
+                        <p id="logintext">Or sign up <Link to="/signup">here</Link></p>
 
                     </div>
                 </div>

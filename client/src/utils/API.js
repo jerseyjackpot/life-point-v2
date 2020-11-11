@@ -20,6 +20,10 @@ export default {
         console.log("line20");
         return Axios.post("/api/entry", userData);
     },
+    getEntry: function (date){
+        console.log("line20");
+        return Axios.get("/api/entry/" + date);
+    },
     getDate: function (date){
         console.log("from api.js", date.date);
         return Axios.get("/api/entry", {params:{date:date.date}})

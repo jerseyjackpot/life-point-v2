@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === "production") {
   }
 require("./routes/api-routes.js")(app);
 
-// app.use(require('./routes/index.js'));
+app.use(require('./routes/index.js'));
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/lifepoint', {useNewUrlParser: true});
 // Syncing our database and logging a message to the user upon success
   app.listen(PORT, () => {

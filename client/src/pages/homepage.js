@@ -1,10 +1,8 @@
 import React,{useContext} from 'react';
 import "./homepage.css";
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
+import { Row, Col, Container } from 'react-bootstrap';
 import UserContext from "../UserContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 
 function Homepage() {
@@ -20,17 +18,17 @@ function Homepage() {
             <h2>Please click on the buttons below to log your progress, review history, or reach out to a professional:</h2>
             <Container className="center">
                 <Row className="justify-content-center">
-                    <a href="/members"><button id="button-a" type="button" className="btn btn-outline-info btn-lg"> Daily
-                    Entry</button></a>
+                    <Link to="/members"><button id="button-a" type="button" className="btn btn-outline-info btn-lg"> Daily
+                    Entry</button></Link>
                     </Row>
                     <Row>
                         <Col xs={5}>
-                    <a href="/calendar"><button id="button-b" type="button"
-                        className="btn btn-outline-info btn-lg">Calendar</button></a>
+                    <Link to="/calendar"><button id="button-b" type="button"
+                        className="btn btn-outline-info btn-lg">Calendar</button></Link>
                         </Col>
                         <Col xs={6}></Col>
-                    <a href="/resources"><button id="button-c" type="button"
-                        className="btn btn-outline-info btn-lg">Resources</button></a>
+                    <Link to="/resources"><button id="button-c" type="button"
+                        className="btn btn-outline-info btn-lg">Resources</button></Link>
                 </Row>
             </Container>
             
