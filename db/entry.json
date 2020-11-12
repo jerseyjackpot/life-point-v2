@@ -1,7 +1,6 @@
 [{
 
        "insomnia": true,
-
       "gratefulEntryOne": "req.body.gratefulEntryOne",
       "gratefulEntryTwo": "req.body.gratefulEntryTwo",
       "gratefulEntryThree": "req.body.gratefulEntryThree",

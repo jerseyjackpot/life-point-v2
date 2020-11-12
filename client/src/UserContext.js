@@ -3,8 +3,8 @@ import React from "react";
 const UserContext = React.createContext({
   email: "",
   loggedin: false,
-  setEmail: () => {},
-  setLoggedin: () =>{}
+  setEmail: () => { },
+  setLoggedin: () => { }
 });
 
 export default UserContext;

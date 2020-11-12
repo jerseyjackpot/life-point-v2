@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Form, Row, Container, Col } from 'react-bootstrap';
 import NumericInput from 'react-numeric-input';
 
-
-
 function Habitailment(props) {
   const [medTaken, setMedTaken] = useState(false);
   const [showeredToday, setShowerTaken] = useState(false);
@@ -26,8 +24,7 @@ function Habitailment(props) {
     setInsomnias(!insomnias);
     setMenstruations(!menstruations);
   }
-  // used ...stuff to see whats there
-  // then used actual names to get the values
+
   const handleNumericInput = (num, numStr, target) => {
     const stateName = target.getAttribute("data-name");
     console.log(stateName);
@@ -129,7 +126,7 @@ function Habitailment(props) {
             <Col xs={4}>Showered?</Col>
             <Col xs={4}>
               <Form.Group>
-                <Form.Check ref={props.showered} type="checkbox" value={showeredToday} onClick={handClick}  />
+                <Form.Check ref={props.showered} type="checkbox" value={showeredToday} onClick={handClick} />
               </Form.Group>
 
             </Col>

@@ -13,16 +13,14 @@ import UserContext from "./UserContext";
 import SessionUser from "./utils/SessionUser";
 
 
-
-function App(){
+function App() {
   const [email, setEmail] = useState("");
   const [loggedin, setLoggedin] = useState(false);
   SessionUser(setEmail, setLoggedin);
   return (
 
     <Router>
-      <UserContext.Provider value={{email, setEmail, loggedin, setLoggedin}}>
-        
+      <UserContext.Provider value={{ email, setEmail, loggedin, setLoggedin }}>
         <Header />
         <Switch>
           <Route exact path="/">
@@ -37,19 +35,15 @@ function App(){
           <Route exact path={["/login", "/"]}>
             <Login />
           </Route>
-
           <Route exact path="/members">
             <Members />
           </Route>
-          
           <Route exact path="/calendar">
             <Calendar />
           </Route>
-
           <Route exact path="/resources">
             <Resources />
           </Route>
-
         </Switch>
         <Footer />
       </UserContext.Provider>

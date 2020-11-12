@@ -20,9 +20,7 @@ function SignUp(props) {
     const History = useHistory();
     const handleSubmit = function (event) {
         event.preventDefault();
-        // console.log(event + email + loggedin);
-        // console.log(emailInput.current.value);
-        // console.log(passwordInput.current.value);
+        
         API.signup({ email: emailInput.current.value, password: passwordInput.current.value })
             .then(data => {
                 console.log(data);
@@ -57,7 +55,7 @@ function SignUp(props) {
                             <input type="password" className="form-control" id="password-input" placeholder="Password" ref={passwordInput} />
                             <button type="submit" className="btn btn-default" onClick={event => handleSubmit(event)}>SignUp</button>
                         </div>
-                        {/* <br/> */}
+                       
                         <p id="logintext">Or Login <Link to="/login">here</Link></p>
                     </div>
                 </div>

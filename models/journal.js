@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const journalSchema = new Schema({
   entryText: { type: String },
-  date: { type: String, default: Date.now } 
+  date: { type: String, default: Date.now }
 });
 
 const Journal = mongoose.model('Journal', journalSchema);

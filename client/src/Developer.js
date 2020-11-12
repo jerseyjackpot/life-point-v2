@@ -3,7 +3,7 @@ import UserContext from "../UserContext";
 
 function DeveloperInfo() {
   // const { name, mood, excitementLevel, email } = useContext(DeveloperContext);
- const {email, loggedin} = useContext (UserContext);
+  const { email, loggedin } = useContext(UserContext);
 
   return (
     <div className="card">

@@ -6,7 +6,7 @@ const rememberSchema = new Schema({
   two: { type: String },
   three: { type: String },
   four: { type: String },
-  five: { type: String },  
+  five: { type: String },
 });
 
 const Remember = mongoose.model("Remember", rememberSchema);

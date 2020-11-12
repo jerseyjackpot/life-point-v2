@@ -3,7 +3,7 @@ import "./style.css";
 import Nav from '../components/navbar';
 import { fadeInUp } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
-// import "animate.css/animate.min.css";
+import "animate.css/animate.min.css";
 import ScrollAnimation from 'react-animate-on-scroll';
 
 

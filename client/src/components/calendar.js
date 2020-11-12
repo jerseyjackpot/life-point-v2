@@ -10,7 +10,6 @@ import API from '../utils/API';
 
     const dayClickHandler = (dayclickEvent, events) => {
       console.log("dayclick", dayclickEvent.date);
-      // API.getDate(date).then(() =>{console.log("did this work?")})
       API.getEntry(dayclickEvent.date);
     }
 

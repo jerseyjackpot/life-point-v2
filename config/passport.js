@@ -14,7 +14,7 @@ passport.use(
       // When a user tries to sign in this code runs
       db.User.findOne({
         email: email
-        
+
       }).then(dbUser => {
         // If there's no user with the given email
         if (!dbUser) {
@@ -35,9 +35,6 @@ passport.use(
   )
 );
 
-// In order to help keep authentication state across HTTP requests,
-// Sequelize needs to serialize and deserialize the user
-// Just consider this part boilerplate needed to make it all work
 passport.serializeUser((user, cb) => {
   cb(null, user);
 });

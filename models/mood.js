@@ -8,7 +8,7 @@ const moodSchema = new Schema({
   minutesExercise: { type: Number },
   minutesNapping: { type: Number },
   servingsCaffiene: { type: Number },
-  servingsAlcohol: { type: Number},
+  servingsAlcohol: { type: Number },
   hoursTV: { type: Number },
   showered: { type: Boolean },
   brushedTeeth: { type: Boolean },
@@ -17,7 +17,7 @@ const moodSchema = new Schema({
   headache: { type: Boolean },
   nausea: { type: Boolean },
   exhaustion: { type: Boolean },
-  insomnia: {type: Boolean },
+  insomnia: { type: Boolean },
   appetite: { type: Number },
   menstruation: { type: Boolean }
 });
