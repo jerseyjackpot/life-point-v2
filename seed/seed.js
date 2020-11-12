@@ -1,4 +1,5 @@
 let seedfile = require('../db/affirmSeed.json');
+require('dotenv').config();
 const db = require("../models");
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/lifepoint', {useNewUrlParser: true});
