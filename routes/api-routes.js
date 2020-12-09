@@ -84,7 +84,7 @@ module.exports = function (app) {
       // const EntryId = data._id;
       // res.json({ data });
       res.json({
-        userId: data.userId,
+        userId: parseInt(data.userId),
         remember: data.remember,
         mood: data.mood,
         medication: data.medication,
