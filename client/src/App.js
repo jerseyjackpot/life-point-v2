@@ -6,6 +6,7 @@ import Footer from './components/footer.js';
 import Members from './pages/members.js';
 import Calendar from './components/calendar.js';
 import Resources from './pages/resources.js';
+import Logout from './pages/logout.js';
 import Login from './pages/login.js';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route exact path="/resources">
             <Resources />
+          </Route>
+          <Route exact path="/logout">
+            <Logout />
           </Route>
         </Switch>
         <Footer />
